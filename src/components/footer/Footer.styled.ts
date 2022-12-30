@@ -12,8 +12,8 @@ export const StyledFooter = styled.footer`
   color: #364453;
 
   .pointer {
-    height: 70px;
-    width: 70px;
+    height: 110px;
+    width: 110px;
     border-radius: 50%;
     display: grid;
     place-content: center;
@@ -21,16 +21,12 @@ export const StyledFooter = styled.footer`
     padding: 10px;
     border: 5px #364453 solid;
     transition: 0.5 all ease;
-
-    :hover {
-      /* background-color: black;
-      color: #fff;
-      transition: 0.5 all ease; */
-    }
   }
 
   .btn-active {
     background-color: #364453;
     color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
 `;

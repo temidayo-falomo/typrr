@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import { BsAlarm } from "react-icons/bs";
 import { AppContext } from "../../helper/Context";
 import { StyledFooter } from "./Footer.styled";
 
@@ -17,13 +18,16 @@ function Footer() {
         return (
           <div
             key={i}
-            className={`normal-card pointer ${i === number && "btn-active"}`}
+            className={`normal-circle pointer ${i === number && "btn-active"}`}
             onClick={() => {
               setNumber(i);
               setTimerCount(numb);
             }}
           >
-            {numb}
+            <div className="row center gap-5">
+              {numb}
+              <BsAlarm />
+            </div>
           </div>
         );
       })}

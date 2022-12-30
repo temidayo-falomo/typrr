@@ -22,10 +22,11 @@ export const StyledTextField = styled.div`
 
     span {
       color: #000;
+      font-size: 3rem;
     }
   }
 
-  p {
+  .text-p {
     font-size: 3rem;
     line-height: 4.5rem;
     text-align: center;
