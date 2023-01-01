@@ -9,11 +9,12 @@ function Letter(props: any) {
       setTextColor("green");
       props.setWpm(props.wpm + 1);
       console.log("Right");
-    } else if (props.lastLetter !== props.textData[props.index]) {
+      // console.log(props.lastLetter, props.textData[props.index]);
+    } else {
       setTextColor("red");
+      // console.log("Wrong");
     }
   }, [props.lastLetter, props.index, props.textData]);
-
 
   return (
     <StyledLetter

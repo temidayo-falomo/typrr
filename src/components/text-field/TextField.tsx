@@ -62,16 +62,15 @@ function TextField(props: any) {
   //   setWpm(number);
   // }, [number]);
 
-  // useEffect(() => {
-  //   if (
-  //     lastLetter !==
-  //     textData?.split("").map((data: any, i: any) => {
-  //       return textData[i];
-  //     })
-  //   ) {
-  //     console.log("Wrong");
-  //   }
-  // }, [lastLetter, textData]);
+  useEffect(() => {
+    if (lastLetter !== textData[wpm]) {
+      console.log("Wrong");
+      
+    }
+
+    console.log(lastLetter, textData[wpm], "match?");
+    
+  }, [wpm]);
 
   return (
     <StyledTextField number={number}>
@@ -82,9 +81,9 @@ function TextField(props: any) {
           )}
         </ReactIsCapsLockActive>
       }
-      <div className="wpmm">
+      {/* <div className="wpmm">
         <h3>{wpm}</h3>
-      </div>
+      </div> */}
       <div className="input">
         <input
           ref={inputRef}

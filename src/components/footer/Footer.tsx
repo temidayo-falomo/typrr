@@ -26,7 +26,7 @@ function Footer() {
           >
             <div className="row center gap-5">
               {numb}
-              <BsAlarm />
+              {/* <BsAlarm /> */}
             </div>
           </div>
         );
