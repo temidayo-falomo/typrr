@@ -57,20 +57,22 @@ function TextField(props: any) {
     document.addEventListener("keydown", detectKeydown, true);
   }, []);
 
-  //
-  // useEffect(() => {
-  //   setWpm(number);
-  // }, [number]);
+  // //
+  // // useEffect(() => {
+  // //   setWpm(number);
+  // // }, [number]);
 
-  useEffect(() => {
-    if (lastLetter !== textData[wpm]) {
-      console.log("Wrong");
-      
-    }
+  // // useEffect(() => {
+  // //   if (lastLetter !== textData[wpm]) {
+  // //     console.log("Wrong");
+  // //   }
 
-    console.log(lastLetter, textData[wpm], "match?");
-    
-  }, [wpm]);
+  // //   console.log(lastLetter, textData[wpm], "match?");
+  // // }, [wpm]);
+
+  // useEffect(()=> {
+  //   textData
+  // }, [])
 
   return (
     <StyledTextField number={number}>
@@ -81,9 +83,9 @@ function TextField(props: any) {
           )}
         </ReactIsCapsLockActive>
       }
-      {/* <div className="wpmm">
+      <div className="wpmm">
         <h3>{wpm}</h3>
-      </div> */}
+      </div>
       <div className="input">
         <input
           ref={inputRef}
@@ -162,7 +164,7 @@ function TextField(props: any) {
         </>
       )}
       <div className="row btw gap-1" style={{ fontSize: "3rem" }}>
-        <div className="pointer">
+        <div className="pointer" onClick={props.handleDownload}>
           <RiScreenshot2Fill />
         </div>
         <div
@@ -174,6 +176,7 @@ function TextField(props: any) {
             setWordClicked(false);
             setTpropVal(1);
             props.setDisplayFooterAndNav(true);
+            setWpm(0);
           }}
         >
           <GrRefresh />
@@ -188,6 +191,7 @@ function TextField(props: any) {
             setWordClicked(false);
             setTpropVal(1);
             props.setDisplayFooterAndNav(true);
+            setWpm(0);
           }}
         >
           <AiOutlineArrowRight />

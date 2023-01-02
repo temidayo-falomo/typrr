@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useRef, useState, useTransition } from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import GlobalStyle from "./Globalstyles";
 import { AppContext } from "./helper/Context";
@@ -7,14 +7,13 @@ import { offlineArr } from "./offline/OfflineArr";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 
-function App({ delayResend = "15" }) {
+function App() {
   const [user, setUser] = useState<object>({});
   const [wordLength, setWordLength] = useState<number>(15);
   const [timerCount, setTimerCount] = useState<any>(15);
   const [textData, setTextData] = useState<string>("");
   const [unChangedTextData, setUnchangedTextData] = useState<string>("");
   const [loading, setLoading] = useState(true);
-
 
   const getWordsFromApi = () => {
     setLoading(true);

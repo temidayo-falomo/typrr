@@ -3,12 +3,13 @@ import { StyledLetter } from "./Letter.styled";
 
 function Letter(props: any) {
   const [textColor, setTextColor] = useState<any>("gainsboro");
+  const [idk, setIdk] = useState<any>(Array.from(props.textData[props.index]));
 
   useEffect(() => {
-    if (props.lastLetter === props.textData[props.index]) {
+    if (props.lastLetter === idk[0]) {
       setTextColor("green");
       props.setWpm(props.wpm + 1);
-      console.log("Right");
+      setIdk([...idk, "green"]);
       // console.log(props.lastLetter, props.textData[props.index]);
     } else {
       setTextColor("red");
@@ -22,6 +23,8 @@ function Letter(props: any) {
       number={props.number}
       index={props.index}
       textData={props.textData}
+      lastLetter={props.lastLetter}
+      idk={idk}
     >
       {props.text}
     </StyledLetter>

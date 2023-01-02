@@ -7,4 +7,9 @@ export const StyledHome = styled.div`
   justify-content: space-between;
   /* align-items: center;
   justify-content: center; */
+
+  .height {
+    height: 0 !important;
+    display: none !important;
+  }
 `;
