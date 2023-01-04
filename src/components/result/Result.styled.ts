@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledResult = styled.div`
-  /* border: 2px black solid; */
+  border: 2px black solid;
   height: 200px;
   width: 800px;
   max-width: 800px;

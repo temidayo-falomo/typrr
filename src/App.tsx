@@ -23,7 +23,6 @@ function App() {
       .then((res) => {
         setTextData(res.data);
         setUnchangedTextData(res.data);
-        console.log(res.data);
       })
       .then(() => {
         setLoading(false);

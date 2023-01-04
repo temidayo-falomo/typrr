@@ -75,16 +75,16 @@ function TextField(props: any) {
 
   return (
     <StyledTextField number={number}>
-      {
-        <ReactIsCapsLockActive>
-          {(active: any) => (
-            <h2 style={{ color: "orange" }}>{active ? "CAPSLOCK" : ""}</h2>
-          )}
-        </ReactIsCapsLockActive>
-      }
-      <div className="wpmm">
-        <h3>{wpm}</h3>
+      <div style={{ position: "absolute", top: "5%" }}>
+        {
+          <ReactIsCapsLockActive>
+            {(active: any) => (
+              <h2 style={{ color: "orange" }}>{active ? "CAPSLOCK" : ""}</h2>
+            )}
+          </ReactIsCapsLockActive>
+        }
       </div>
+      {<h1>{wpm}</h1>}
       <div className="input">
         <input
           ref={inputRef}
@@ -96,7 +96,6 @@ function TextField(props: any) {
             if (tpropVal !== 0) {
               setLastLetter(e.target.value[e.target.value.length - 1]);
               setNumber(number + 1);
-              // setWpm(number + 1);
             }
 
             if (tpropVal === 0) {

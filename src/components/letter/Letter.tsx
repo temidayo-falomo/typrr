@@ -6,13 +6,13 @@ function Letter(props: any) {
   const [textColor, setTextColor] = useState<any>("gainsboro");
 
   useEffect(() => {
-    if (props.lastLetter === props.textData[props.index]) {
+    if (props.textData[props.number] === props.lastLetter) {
       setTextColor("green");
       props.setWpm(props.wpm + 1);
-    } else if (props.lastLetter !== props.textData[props.index]) {
+    } else if (props.lastLetter !== props.textData[props.number]) {
       setTextColor("red");
     }
-  }, [props.lastLetter, props.index, props.textData]);
+  }, [props.number]);
 
   return (
     <StyledLetter

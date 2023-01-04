@@ -4,7 +4,7 @@ import { StyledResult } from "./Result.styled";
 function Result(props: any) {
   // const [finAns, setFinAns] = useState(1);
 
-  // useEffect(() => {
+  // useEffect(() =>
   //   setFinAns(props.wpm / props.timerCount);
   // }, []);
 
