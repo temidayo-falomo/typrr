@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: monospace;
   }
 
+  /* .hello {
+    border: 2px pink solid;
+  } */
+
   body {
     background-color: #ECE6E4;
     color: #000;
