@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import GlobalStyle from "./Globalstyles";
 import { AppContext } from "./helper/Context";
@@ -17,11 +17,13 @@ function App() {
 
   const getWordsFromApi = () => {
     setLoading(true);
+
     axios
       .get("http://metaphorpsum.com/paragraphs/1")
       .then((res) => {
         setTextData(res.data);
         setUnchangedTextData(res.data);
+        console.log(res.data);
       })
       .then(() => {
         setLoading(false);

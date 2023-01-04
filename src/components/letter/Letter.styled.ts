@@ -2,11 +2,6 @@ import styled from "styled-components";
 
 export const StyledLetter = styled.span`
   :nth-of-type(-n + ${(props: any) => props.number + 1}) {
-    /* color: ${(props: any) =>
-      props.index === props.number ? props.textColor : props.idk[1]};
-    // ? props.idk[1]
-    // : "gaisboro"}; */
-
     color: ${(props: any) =>
       props.index === props.number ? props.textColor : "gainsboro"};
   }

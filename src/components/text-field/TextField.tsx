@@ -57,18 +57,17 @@ function TextField(props: any) {
     document.addEventListener("keydown", detectKeydown, true);
   }, []);
 
-  // //
-  // // useEffect(() => {
-  // //   setWpm(number);
-  // // }, [number]);
+  // useEffect(() => {
+  //   setWpm(number);
+  // }, [number]);
 
-  // // useEffect(() => {
-  // //   if (lastLetter !== textData[wpm]) {
-  // //     console.log("Wrong");
-  // //   }
+  // useEffect(() => {
+  //   if (lastLetter !== textData[wpm]) {
+  //     console.log("Wrong");
+  //   }
 
-  // //   console.log(lastLetter, textData[wpm], "match?");
-  // // }, [wpm]);
+  //   console.log(lastLetter, textData[wpm], "match?");
+  // }, [wpm]);
 
   // useEffect(()=> {
   //   textData
@@ -130,6 +129,7 @@ function TextField(props: any) {
                   <BsAlarm />
                 </span>
               </div>
+
               {textData
                 ?.slice(0, 120)
                 ?.split("")
@@ -137,20 +137,17 @@ function TextField(props: any) {
                   return (
                     <React.Fragment key={i}>
                       <Letter
-                        number={number}
-                        setNumber={setNumber}
                         text={text}
+                        setWpm={setWpm}
+                        lastLetter={lastLetter}
                         index={i}
                         textData={textData}
-                        letterClicked={letterClicked}
-                        lastLetter={lastLetter}
+                        number={number}
                         wpm={wpm}
-                        setWpm={setWpm}
                       />
                     </React.Fragment>
                   );
                 })}
-              .
             </div>
           ) : (
             <div className="centrr">
