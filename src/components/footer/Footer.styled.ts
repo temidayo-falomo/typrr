@@ -1,26 +1,28 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-  width: 95%;
+  width: 50%;
+  min-width: 500px;
+  max-width: 500px;
   margin: 1rem auto;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5%;
+  gap: 3rem;
   flex-wrap: wrap;
   padding: 0 5px;
   /* color: #364453; */
 
   .pointer {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     display: grid;
     place-content: center;
     font-size: 2rem;
     padding: 10px;
-    border: 4px #000 solid;
+    /* border: 4px #000 solid; */
     transition: 0.5 all ease;
   }
 

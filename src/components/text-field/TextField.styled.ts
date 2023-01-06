@@ -7,11 +7,9 @@ export const StyledTextField = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-height: 60vh; */
   align-self: center;
 
   .wc {
-    /* color: orange; */
     font-size: 2rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -19,6 +17,10 @@ export const StyledTextField = styled.div`
     flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
+
+    .timer-div {
+      
+    }
 
     span {
       color: #000;
@@ -65,6 +67,15 @@ export const StyledTextField = styled.div`
     justify-content: center;
     align-items: center;
     max-height: 200px;
+  }
+
+  .icons {
+    font-size: 2.5rem;
+    gap: 2rem;
+
+    .pointer:hover {
+      color: gray;
+    }
   }
 
   .lds-facebook {

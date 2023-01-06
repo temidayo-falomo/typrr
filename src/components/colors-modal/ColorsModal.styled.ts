@@ -1,21 +1,33 @@
 import styled from "styled-components";
 
 export const StyledColorsModal = styled.div`
-  width: 600px;
-  max-width: 600px;
-  min-width: 300px;
-  height: 80vh;
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  top: 0;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
   bottom: 0;
-  background-color: #fff;
-  margin: auto;
-  padding: 20px;
-  border-radius: 20px;
-  overflow-y: auto;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.8px);
+  -webkit-backdrop-filter: blur(2.8px);
+
+  .modal {
+    width: 600px;
+    max-width: 600px;
+    min-width: 300px;
+    height: 80vh;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 0;
+    bottom: 0;
+    background-color: #ece6e4;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    overflow-y: auto;
+  }
 
   .top {
     display: flex;
@@ -45,6 +57,7 @@ export const StyledColorsModal = styled.div`
       padding: 10px;
       padding-left: 0;
       border: none;
+      background-color: transparent;
       font-family: "Poppins", sans-serif;
     }
   }
@@ -61,9 +74,10 @@ export const StyledColorsModal = styled.div`
       font-family: "Poppins", sans-serif !important;
       font-weight: 400;
       font-size: 0.9rem;
+      border-radius: 5px;
 
       :hover {
-        background-color: #f5f5f5;
+        background-color: gainsboro;
       }
     }
   }

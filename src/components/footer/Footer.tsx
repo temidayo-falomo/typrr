@@ -8,10 +8,6 @@ function Footer() {
   const [number, setNumber] = useState(0);
   const timeArr = [15, 30, 60];
 
-  // useEffect(() => {
-  //   setTimerCount(timeArr[number]);
-  // }, [number]);
-
   return (
     <StyledFooter>
       {timeArr.map((numb: number, i: any) => {
@@ -25,8 +21,7 @@ function Footer() {
             }}
           >
             <div className="row center gap-5">
-              {numb}
-              {/* <BsAlarm /> */}
+              {numb}s
             </div>
           </div>
         );

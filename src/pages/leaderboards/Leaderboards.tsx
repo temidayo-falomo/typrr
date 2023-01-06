@@ -1,4 +1,6 @@
 import React from "react";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { StyledLeaderboards } from "./Leaderboards.styled";
 
 function Leaderboards() {
@@ -6,17 +8,89 @@ function Leaderboards() {
     <StyledLeaderboards>
       <div className="top">
         <div className="row btw center">
-          <div>Back</div>
-          <h1>High Scores</h1>
+          <Link to="/">
+            <MdOutlineKeyboardBackspace
+              className="pointer"
+              style={{ fontSize: "3rem" }}
+            />
+          </Link>
+
+          <h1>Leaderboards</h1>
           <div></div>
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut labore
-          aperiam, eius rerum inventore autem ipsam corporis dolorem eum nemo
-          esse non magnam quia tempora ullam deserunt aliquam illo
-          necessitatibus.
+          Typrr collects data from users around the world to judge their typing
+          speed & rate it on the leaderboards.
         </p>
       </div>
+
+      <table className="leaderboard-rect">
+        <tr>
+          <th>#User</th>
+          <th>Avg. Wpm</th>
+          <th>Max Speed</th>
+        </tr>
+
+        <tr>
+          <div className="join row center gap-1">
+            <td>#1</td>
+            <td className="circle"></td>
+            <td>Temidayo</td>
+          </div>
+          <td>160 Avg. Wpm</td>
+          <td>90% Accuracy</td>
+        </tr>
+
+        <tr>
+          <div className="join row center gap-1">
+            <td>#2</td>
+            <td className="circle"></td>
+            <td>Temidayo</td>
+          </div>
+          <td>160 Avg. Wpm</td>
+          <td>90% Accuracy</td>
+        </tr>
+
+        <tr>
+          <div className="join row center gap-1">
+            <td>#3</td>
+            <td className="circle"></td>
+            <td>Temidayo</td>
+          </div>
+          <td>160 Avg. Wpm</td>
+          <td>90% Accuracy</td>
+        </tr>
+
+        <tr>
+          <div className="join row center gap-1">
+            <td>#4</td>
+            <td className="circle"></td>
+            <td>Temidayo</td>
+          </div>
+          <td>160 Avg. Wpm</td>
+          <td>90% Accuracy</td>
+        </tr>
+
+        <tr>
+          <div className="join row center gap-1">
+            <td>#4</td>
+            <td className="circle"></td>
+            <td>Temidayo</td>
+          </div>
+          <td>160 Avg. Wpm</td>
+          <td>90% Accuracy</td>
+        </tr>
+
+        <tr>
+          <div className="join row center gap-1">
+            <td>#4</td>
+            <td className="circle"></td>
+            <td>Temidayo</td>
+          </div>
+          <td>160 Avg. Wpm</td>
+          <td>90% Accuracy</td>
+        </tr>
+      </table>
     </StyledLeaderboards>
   );
 }

@@ -6,34 +6,37 @@ import { AppContext } from "../../helper/Context";
 
 function ColorsModal() {
   const { setDisplayColorsModal } = useContext(AppContext);
+
   return (
     <StyledColorsModal>
-      <div className="top">
-        <MdOutlineCancel
-          className="pointer"
-          onClick={() => setDisplayColorsModal(false)}
-        />
-      </div>
-      <div className="row">
-        <div
-          className="div"
-          style={{ display: "grid", placeContent: "center" }}
-        >
-          <BiSearchAlt2 className="search" />
+      <div className="modal">
+        <div className="top">
+          <MdOutlineCancel
+            className="pointer"
+            onClick={() => setDisplayColorsModal(false)}
+          />
         </div>
-        <input
-          type="search"
-          placeholder="Search for a color"
-          autoFocus={true}
-          onBlur={({ target }) => target.focus()}
-        />
-      </div>
+        <div className="row">
+          <div
+            className="div"
+            style={{ display: "grid", placeContent: "center" }}
+          >
+            <BiSearchAlt2 className="search" />
+          </div>
+          <input
+            type="search"
+            placeholder="Search for a color"
+            autoFocus={true}
+            onBlur={({ target }) => target.focus()}
+          />
+        </div>
 
-      <div className="col gap-1">
-        <div className="option">Blue</div>
-        <div className="option">Red</div>
-        <div className="option">Yellow</div>
-        <div className="option">Green</div>
+        <div className="col gap-1">
+          <div className="option">Blue</div>
+          <div className="option">Red</div>
+          <div className="option">Yellow</div>
+          <div className="option">Green</div>
+        </div>
       </div>
     </StyledColorsModal>
   );

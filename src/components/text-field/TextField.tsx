@@ -9,6 +9,7 @@ import Timer from "../timer/Timer";
 import { BsAlarm } from "react-icons/bs";
 import ReactIsCapsLockActive from "@matsun/reactiscapslockactive";
 import Result from "../result/Result";
+import { MdOutlineRefresh } from "react-icons/md";
 
 function TextField(props: any) {
   const { textData, getWordsFromApi, loading, timerCount } =
@@ -120,7 +121,6 @@ function TextField(props: any) {
                   <BsAlarm />
                 </span>
               </div>
-
               {textData
                 ?.slice(0, 120)
                 ?.split("")
@@ -139,7 +139,7 @@ function TextField(props: any) {
                     </React.Fragment>
                   );
                 })}
-                ...
+              ...
             </div>
           ) : (
             <div className="centrr">
@@ -152,7 +152,7 @@ function TextField(props: any) {
           )}
         </>
       )}
-      <div className="row btw gap-1" style={{ fontSize: "3rem" }}>
+      <div className="row btw gap-1 icons">
         <div className="pointer" onClick={props.handleDownload}>
           <RiScreenshot2Fill />
         </div>
@@ -168,7 +168,7 @@ function TextField(props: any) {
             setWpm(0);
           }}
         >
-          <GrRefresh />
+          <MdOutlineRefresh />
         </div>
         <div
           className="pointer"
