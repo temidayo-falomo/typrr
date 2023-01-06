@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../helper/Context";
+import React, { useEffect, useState } from "react";
 import { StyledLetter } from "./Letter.styled";
 
 function Letter(props: any) {
@@ -7,9 +6,9 @@ function Letter(props: any) {
   const [errorum, setErrorum] = useState<any>(0);
 
   useEffect(() => {
+
     if (props.textData[props.number] === props.lastLetter) {
       setTextColor("green");
-
       props.setWpm(props.wpm + 1);
     } else if (props.lastLetter !== props.textData[props.number]) {
       setTextColor("red");

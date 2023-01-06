@@ -29,11 +29,15 @@ export const StyledTextField = styled.div`
   .text-p {
     font-size: 3rem;
     line-height: 4.5rem;
-    text-align: center;
-    flex-wrap: wrap;
+    display: inline-table;
+    zoom: 1;
+    width: 800px;
+
     max-width: 800px;
-    text-align: center;
-    margin: auto;
+    min-width: 350px;
+    text-align: left;
+    text-justify: inter-word;
+    align-items: center;
   }
 
   .input {

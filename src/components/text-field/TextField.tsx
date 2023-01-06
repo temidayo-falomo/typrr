@@ -33,6 +33,9 @@ function TextField(props: any) {
   //
   const [wpm, setWpm] = useState<number>(0);
 
+  //
+  const [totalKeysPressed, setTotalKeysPressed] = useState<number>(0);
+
   //detecting the key pressed
   const detectKeydown = (e: any) => {
     if (e.key === "Backspace") {
@@ -57,22 +60,6 @@ function TextField(props: any) {
     document.addEventListener("keydown", detectKeydown, true);
   }, []);
 
-  // useEffect(() => {
-  //   setWpm(number);
-  // }, [number]);
-
-  // useEffect(() => {
-  //   if (lastLetter !== textData[wpm]) {
-  //     console.log("Wrong");
-  //   }
-
-  //   console.log(lastLetter, textData[wpm], "match?");
-  // }, [wpm]);
-
-  // useEffect(()=> {
-  //   textData
-  // }, [])
-
   return (
     <StyledTextField number={number}>
       <div style={{ position: "absolute", top: "5%" }}>
@@ -84,7 +71,6 @@ function TextField(props: any) {
           </ReactIsCapsLockActive>
         }
       </div>
-      {<h1>{wpm}</h1>}
       <div className="input">
         <input
           ref={inputRef}
@@ -96,6 +82,7 @@ function TextField(props: any) {
             if (tpropVal !== 0) {
               setLastLetter(e.target.value[e.target.value.length - 1]);
               setNumber(number + 1);
+              setTotalKeysPressed(totalKeysPressed + 1);
             }
 
             if (tpropVal === 0) {
@@ -109,13 +96,18 @@ function TextField(props: any) {
         />
       </div>
       {tpropVal === 0 ? (
-        <Result wpm={wpm} timerCount={timerCount} />
+        <Result
+          wpm={wpm}
+          timerCount={timerCount}
+          tPropVal={tpropVal}
+          totalKeysPressed={totalKeysPressed}
+        />
       ) : (
         <>
           {!loading ? (
             <div className="text-p">
               <div className="wc row center gap-5">
-                <div style={{ display: "inline-flex" }}>
+                <div className="timer-div" style={{ display: "inline-flex" }}>
                   {" "}
                   {wordClicked ? (
                     <Timer tPropVal={tpropVal} setTpropVal={setTpropVal} />
@@ -147,6 +139,7 @@ function TextField(props: any) {
                     </React.Fragment>
                   );
                 })}
+                ...
             </div>
           ) : (
             <div className="centrr">

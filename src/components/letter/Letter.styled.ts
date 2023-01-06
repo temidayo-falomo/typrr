@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLetter = styled.span`
+  word-wrap: break-word;
   :nth-of-type(-n + ${(props: any) => props.number + 1}) {
   }
 

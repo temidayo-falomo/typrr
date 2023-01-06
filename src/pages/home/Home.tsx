@@ -17,16 +17,15 @@ function Home(props: any) {
 
   return (
     <React.Fragment>
-      <div>
-        <StyledHome>
-          {displayFooterAndNav && <Navbar />}
-          <TextField
-            displayFooterAndNav={displayFooterAndNav}
-            setDisplayFooterAndNav={setDisplayFooterAndNav}
-          />
-          {displayFooterAndNav && <Footer />}
-        </StyledHome>
-      </div>
+      
+      <StyledHome>
+        {displayFooterAndNav && <Navbar />}
+        <TextField
+          displayFooterAndNav={displayFooterAndNav}
+          setDisplayFooterAndNav={setDisplayFooterAndNav}
+        />
+        {displayFooterAndNav && <Footer />}
+      </StyledHome>
     </React.Fragment>
   );
 }
