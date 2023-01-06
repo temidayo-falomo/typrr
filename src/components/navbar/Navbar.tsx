@@ -6,7 +6,7 @@ import { MdOutlineColorLens } from "react-icons/md";
 import { BsKeyboard } from "react-icons/bs";
 import { AppContext } from "../../helper/Context";
 import { auth } from "../../firebase/firebase-config";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   let navigate = useNavigate();
@@ -19,12 +19,19 @@ function Navbar() {
         <BsKeyboard className="pointer" style={{ fontSize: "2rem" }} />
       </div>
       <div className="links row center gap-1">
-        <FaCrown className="pointer" />
-        <AiTwotoneSetting className="pointer" />
+        {
+          <Link
+            to="/leaderboards"
+            style={{ display: "grid", placeContent: "center" }}
+          >
+            <FaCrown className="pointer" />
+          </Link>
+        }
         <MdOutlineColorLens
           className="pointer"
           onClick={() => setDisplayColorsModal(true)}
         />
+        <AiTwotoneSetting className="pointer" />
         <div
           onClick={() => {
             if (!auth) {

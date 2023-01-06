@@ -8,6 +8,7 @@ import GlobalStyle from "./Globalstyles";
 import { AppContext } from "./helper/Context";
 import { offlineArr } from "./offline/OfflineArr";
 import Home from "./pages/home/Home";
+import Leaderboards from "./pages/leaderboards/Leaderboards";
 import Login from "./pages/login/Login";
 
 function App() {
@@ -49,8 +50,7 @@ function App() {
   // users collection
   const usersCollectionRef = collection(db, "users");
 
-  //Get All User Circles
-
+  //Get All Users
   const getAllUsers = async () => {
     const q = query(usersCollectionRef);
     onSnapshot(q, (snapshot) => {
@@ -77,6 +77,7 @@ function App() {
         setTextData,
         unChangedTextData,
 
+        //functions
         getWordsFromApi,
         getAllUsers,
 
@@ -96,6 +97,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/leaderboards" element={<Leaderboards />} />
         </Routes>
       </div>
     </AppContext.Provider>
