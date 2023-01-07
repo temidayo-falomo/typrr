@@ -21,7 +21,7 @@ function Login() {
       .then((res) => {
         localStorage.setItem("typrrIsAuth", "true");
 
-        if (users.filter((user: any) => user.id === res.user.uid)) {
+        if (users?.some((user: any) => user.id === res.user.uid)) {
           console.log("user already exists");
           navigate("/");
         } else {
