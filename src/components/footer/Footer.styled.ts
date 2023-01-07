@@ -9,14 +9,14 @@ export const StyledFooter = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 4rem;
   flex-wrap: wrap;
   padding: 0 5px;
   /* color: #364453; */
 
   .pointer {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     display: grid;
     place-content: center;
@@ -32,5 +32,28 @@ export const StyledFooter = styled.footer`
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     font-weight: 600;
+    position: relative;
+
+    ::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+
+    ::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #000;
+    }
   }
 `;

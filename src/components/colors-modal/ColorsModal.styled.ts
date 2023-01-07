@@ -10,6 +10,7 @@ export const StyledColorsModal = styled.div`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2.8px);
   -webkit-backdrop-filter: blur(2.8px);
+  z-index: 99999;
 
   .modal {
     width: 600px;
@@ -27,6 +28,7 @@ export const StyledColorsModal = styled.div`
     padding: 20px;
     border-radius: 20px;
     overflow-y: auto;
+   
   }
 
   .top {

@@ -19,12 +19,15 @@ export const StyledTextField = styled.div`
     justify-content: center;
 
     .timer-div {
-      
+      font-size: 3rem;
+      font-weight: 600;
     }
 
     span {
       color: #000;
-      font-size: 3rem;
+      font-size: 2.5rem;
+      display: grid;
+      place-content: center;
     }
   }
 

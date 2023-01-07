@@ -35,7 +35,8 @@ function Login() {
                 light: true,
               },
             ],
-            highestSore: 0,
+            highestWpm: 0,
+            highestAccuracy: 0,
           });
           navigate("/");
         }

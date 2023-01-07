@@ -10,6 +10,7 @@ import { BsAlarm } from "react-icons/bs";
 import ReactIsCapsLockActive from "@matsun/reactiscapslockactive";
 import Result from "../result/Result";
 import { MdOutlineRefresh } from "react-icons/md";
+import { FcAlarmClock } from "react-icons/fc";
 
 function TextField(props: any) {
   const { textData, getWordsFromApi, loading, timerCount } =
@@ -118,7 +119,7 @@ function TextField(props: any) {
                   s
                 </div>
                 <span>
-                  <BsAlarm />
+                  <FcAlarmClock />
                 </span>
               </div>
               {textData
