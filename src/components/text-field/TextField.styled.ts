@@ -32,15 +32,15 @@ export const StyledTextField = styled.div`
   }
 
   .text-p {
-    font-size: 3rem;
-    line-height: 4.5rem;
+    font-size: 2.8rem;
+    line-height: 4.4rem;
     display: inline-table;
     zoom: 1;
     width: 800px;
 
     max-width: 800px;
     min-width: 350px;
-    text-align: left;
+    text-align: center;
     text-justify: inter-word;
     align-items: center;
   }

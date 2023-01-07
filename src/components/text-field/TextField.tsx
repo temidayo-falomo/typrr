@@ -1,23 +1,31 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Letter from "../letter/Letter";
 import { StyledTextField } from "./TextField.styled";
-import { GrRefresh } from "react-icons/gr";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { RiScreenshot2Fill } from "react-icons/ri";
 import { AppContext } from "../../helper/Context";
 import Timer from "../timer/Timer";
-import { BsAlarm } from "react-icons/bs";
 import ReactIsCapsLockActive from "@matsun/reactiscapslockactive";
 import Result from "../result/Result";
 import { MdOutlineRefresh } from "react-icons/md";
 import { FcAlarmClock } from "react-icons/fc";
 
 function TextField(props: any) {
-  const { textData, getWordsFromApi, loading, timerCount } =
-    useContext(AppContext);
+  const {
+    textData,
+    getWordsFromApi,
+    loading,
+    timerCount,
+    unChangedTextData,
+    setTextData,
+  } = useContext(AppContext);
 
   const [letterClicked, setLetterClicked] = useState(textData[0]);
+
+  //
   const [number, setNumber] = useState<any>(-1);
+
+  //
   const [lastLetter, setLastLetter] = useState<any>("");
 
   //
@@ -38,13 +46,11 @@ function TextField(props: any) {
   //
   const [totalKeysPressed, setTotalKeysPressed] = useState<number>(0);
 
+  //
+  const [isBackspace, setIsBackspace] = useState<boolean>(false);
+
   //detecting the key pressed
   const detectKeydown = (e: any) => {
-    if (e.key === "Backspace") {
-      console.log(e.key);
-      setLastLetter(textData[number]);
-      setNumber(number - 1);
-    }
     if (e.key === "CapsLock") {
       setCapsState(true);
     }
@@ -60,7 +66,7 @@ function TextField(props: any) {
   //
   useEffect(() => {
     document.addEventListener("keydown", detectKeydown, true);
-  }, []);
+  }, [capsState]);
 
   return (
     <StyledTextField number={number}>
@@ -77,23 +83,39 @@ function TextField(props: any) {
         <input
           ref={inputRef}
           type="text"
-          value={lastLetter}
+          // value={lastLetter}
           autoFocus={true}
           onBlur={({ target }) => target.focus()}
+          onKeyDown={(e) => {
+            if (e.key === "Backspace" && number > 0) {
+              let elms: any = document.getElementsByClassName("letter");
+              for (let i = 0; i < elms.length; i++) {
+                elms[number].style.color = "black";
+              }
+              setIsBackspace(true);
+              setLastLetter(textData[number - 1]);
+              setNumber(number - 1);
+              setWpm(wpm - 1);
+            }
+          }}
           onChange={(e) => {
-            if (tpropVal !== 0) {
-              setLastLetter(e.target.value[e.target.value.length - 1]);
-              setNumber(number + 1);
-              setTotalKeysPressed(totalKeysPressed + 1);
-            }
+            // console.log(e.target);
+            setIsBackspace(false);
+            if (!isBackspace) {
+              if (tpropVal !== 0) {
+                setLastLetter(e.target.value[e.target.value.length - 1]);
+                setNumber(number + 1);
+                setTotalKeysPressed(totalKeysPressed + 1);
+              }
 
-            if (tpropVal === 0) {
-              props.setDisplayFooterAndNav(true);
-            } else {
-              props.setDisplayFooterAndNav(false);
-            }
+              if (tpropVal === 0) {
+                props.setDisplayFooterAndNav(true);
+              } else {
+                props.setDisplayFooterAndNav(false);
+              }
 
-            setWordClicked(true);
+              setWordClicked(true);
+            }
           }}
         />
       </div>
@@ -136,6 +158,8 @@ function TextField(props: any) {
                         textData={textData}
                         number={number}
                         wpm={wpm}
+                        setIsBackspace={setIsBackspace}
+                        isBackspace={isBackspace}
                       />
                     </React.Fragment>
                   );
@@ -167,6 +191,13 @@ function TextField(props: any) {
             setTpropVal(1);
             props.setDisplayFooterAndNav(true);
             setWpm(0);
+            setTextData(unChangedTextData);
+
+            let elms: any = document.getElementsByClassName("letter");
+
+            for (let i = 0; i < elms.length; i++) {
+              elms[i].style.color = "black";
+            }
           }}
         >
           <MdOutlineRefresh />

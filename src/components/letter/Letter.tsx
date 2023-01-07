@@ -6,9 +6,8 @@ function Letter(props: any) {
   const [errorum, setErrorum] = useState<any>(0);
 
   useEffect(() => {
-
     if (props.textData[props.number] === props.lastLetter) {
-      setTextColor("green");
+      // setTextColor("green");
       props.setWpm(props.wpm + 1);
     } else if (props.lastLetter !== props.textData[props.number]) {
       setTextColor("red");
@@ -20,9 +19,15 @@ function Letter(props: any) {
 
       for (var i = -1; i < props.number; i++) {
         if (props.textData[props.number] === props.lastLetter) {
-          elms[props.number].style.color = "green";
+          if (!props.isBackspace) {
+            elms[props.number].style.color = "green";
+          }
         } else if (props.lastLetter !== props.textData[props.number]) {
           elms[props.number].style.color = "red";
+        }
+
+        if (props.isBackspace) {
+          elms[props.number + 1].style.color = "black";
         }
       }
     };

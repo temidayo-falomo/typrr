@@ -31,7 +31,11 @@ function Navbar() {
           className="pointer"
           onClick={() => setDisplayColorsModal(true)}
         />
-        <AiTwotoneSetting className="pointer" />
+
+        <Link to="/settings">
+          <AiTwotoneSetting className="pointer" />
+        </Link>
+
         <div
           onClick={() => {
             if (!auth) {

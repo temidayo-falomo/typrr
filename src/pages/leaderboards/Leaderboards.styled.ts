@@ -119,8 +119,8 @@ export const StyledLeaderboards = styled.div`
       .join {
         margin-left: -5%;
         .circle {
-          width: 50px;
-          height: 50px;
+          min-width: 50px;
+          min-height: 50px;
           border-radius: 50%;
           border: 2px #000 solid;
           /* background-color: #000; */

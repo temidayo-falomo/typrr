@@ -20,6 +20,7 @@ function Login() {
     signInWithPopup(auth, provider)
       .then((res) => {
         localStorage.setItem("typrrIsAuth", "true");
+        localStorage.setItem("typrrUserId", JSON.stringify(res.user.uid));
 
         if (users?.some((user: any) => user.id === res.user.uid)) {
           console.log("user already exists");
@@ -49,7 +50,7 @@ function Login() {
       <div className="box col">
         <div className="row btw center top">
           <h2>Login</h2>
-          <Link to="/">Continue</Link>
+          <Link to="/">Neither?</Link>
         </div>
 
         <div className="col btm">
