@@ -1,9 +1,9 @@
 import axios from "axios";
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, doc, getDoc, onSnapshot, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import ColorsModal from "./components/colors-modal/ColorsModal";
-import { db } from "./firebase/firebase-config";
+import { auth, db } from "./firebase/firebase-config";
 import GlobalStyle from "./Globalstyles";
 import { AppContext } from "./helper/Context";
 import { offlineArr } from "./offline/OfflineArr";
@@ -63,9 +63,19 @@ function App() {
     });
   };
 
-  const getUser = () => {
-    console.log("got user");
+  //Get Current User By Auth.Id
+
+  const getUser = async () => {
+    let id: string = localStorage.getItem("typrrUserId")!;
+    const userDoc = doc(db, "users", id);
+    await getDoc(userDoc).then((doc: any) => {
+      setUser(doc.data());
+    });
   };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <AppContext.Provider
@@ -81,6 +91,7 @@ function App() {
         //functions
         getWordsFromApi,
         getAllUsers,
+        getUser,
 
         timerCount,
         setTimerCount,

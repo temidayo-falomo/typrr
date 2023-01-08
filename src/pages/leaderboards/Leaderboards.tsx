@@ -42,8 +42,8 @@ function Leaderboards() {
       <table className="leaderboard-rect">
         <tr>
           <th>#User</th>
-          <th>Avg. Wpm</th>
-          <th>Accuracy</th>
+          <th>Max Wpm</th>
+          <th>Acc%</th>
         </tr>
         {usersLoading ? (
           <div className="lds-ring">
@@ -54,27 +54,29 @@ function Leaderboards() {
           </div>
         ) : (
           <React.Fragment>
-            {users?.map((user: any, i: number) => {
-              return (
-                <tr key={user?.id}>
-                  <div className="join row center gap-1">
-                    <td>#{i + 1}</td>
-                    <td
-                      className="circle"
-                      style={{
-                        backgroundImage:
-                          user.userAvatar && `url(${user.userAvatar})`,
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                      }}
-                    ></td>
-                    <td>{user?.username}</td>
-                  </div>
-                  <td>{user?.highestWpm} Avg. Wpm</td>
-                  <td>{user?.highestAccuracy}% Accuracy</td>
-                </tr>
-              );
-            })}
+            {users
+              ?.sort((a: any, b: any) => b.highestWpm - a.highestWpm)
+              .map((user: any, i: number) => {
+                return (
+                  <tr key={user?.id}>
+                    <div className="join row center gap-1">
+                      <td>#{i + 1}</td>
+                      <td
+                        className="circle"
+                        style={{
+                          backgroundImage:
+                            user.userAvatar && `url(${user.userAvatar})`,
+                          backgroundPosition: "center",
+                          backgroundSize: "cover",
+                        }}
+                      ></td>
+                      <td>{user?.username}</td>
+                    </div>
+                    <td>{user?.highestWpm} Avg. Wpm</td>
+                    <td>{user?.highestAccuracy} Accuracy</td>
+                  </tr>
+                );
+              })}
           </React.Fragment>
         )}
       </table>

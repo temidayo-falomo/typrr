@@ -20,7 +20,7 @@ function Login() {
     signInWithPopup(auth, provider)
       .then((res) => {
         localStorage.setItem("typrrIsAuth", "true");
-        localStorage.setItem("typrrUserId", JSON.stringify(res.user.uid));
+        localStorage.setItem("typrrUserId", res.user.uid);
 
         if (users?.some((user: any) => user.id === res.user.uid)) {
           console.log("user already exists");

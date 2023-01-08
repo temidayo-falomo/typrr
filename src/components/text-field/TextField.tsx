@@ -124,7 +124,7 @@ function TextField(props: any) {
           wpm={wpm}
           timerCount={timerCount}
           tPropVal={tpropVal}
-          totalKeysPressed={totalKeysPressed}
+          number={number}
         />
       ) : (
         <>
