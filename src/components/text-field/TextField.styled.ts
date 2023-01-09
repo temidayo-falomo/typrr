@@ -36,9 +36,8 @@ export const StyledTextField = styled.div`
     line-height: 4.4rem;
     display: inline-table;
     zoom: 1;
-    width: 800px;
-
-    max-width: 800px;
+    width: 90%;
+    max-width: 750px;
     min-width: 350px;
     text-align: center;
     text-justify: inter-word;

@@ -160,7 +160,6 @@ function TextField(props: any) {
                         textData={textData}
                         number={number}
                         wpm={wpm}
-                        setIsBackspace={setIsBackspace}
                         isBackspace={isBackspace}
                       />
                     </React.Fragment>
@@ -186,7 +185,7 @@ function TextField(props: any) {
           </div>
         </Tippy>
 
-        <Tippy content="Refresh">
+        <Tippy content="Restart">
           <div
             className="pointer"
             onClick={() => {

@@ -20,7 +20,7 @@ function Result(props: any) {
     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     datasets: [
       {
-        data: [12, 19, 3, 5, 2, 3, 4, 5, 6, 7],
+        data: ["15", "20", "25", "20", "10", "20", "15", "12", props.wpm],
         backgroundColor: "royalblue",
         borderColor: "royalblue",
         pointBorderColor: "green",
@@ -55,6 +55,9 @@ function Result(props: any) {
     }
 
     if (Math.floor((props.wpm / props.number) * 100) > user.highestAccuracy) {
+      //second if check to know if
+      // figures are greater than 100(which is the accepted limit)
+
       if (Math.floor((props.wpm / props.number) * 100) < 100) {
         await updateDoc(userDoc, {
           highestAccuracy: Math.floor((props.wpm / props.number) * 100),
@@ -68,7 +71,9 @@ function Result(props: any) {
   };
 
   useEffect(() => {
-    handleAddResultToFirebase();
+    if (timerCount === 15) {
+      handleAddResultToFirebase();
+    }
   }, []);
 
   return (
@@ -103,7 +108,9 @@ function Result(props: any) {
           </div>
           <div className="col btm">
             <span>characters</span>
-            <h4>06/11/22</h4>
+            <h4>
+              0{props.number + 1}/{props.number + 1 - props.wpm}/0
+            </h4>
           </div>
           <div className="col btm">
             <span>time</span>

@@ -14,7 +14,7 @@ export const StyledHome = styled.div`
   }
 
   @media (max-width: 800px) {
-    height: 100vh;
+    height: auto;
     justify-content: flex-start;
   }
 `;

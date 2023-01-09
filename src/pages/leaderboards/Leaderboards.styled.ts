@@ -123,7 +123,7 @@ export const StyledLeaderboards = styled.div`
           min-height: 50px;
           border-radius: 50%;
           border: 2px #000 solid;
-          /* background-color: #000; */
+          background-color: #000;
         }
       }
     }

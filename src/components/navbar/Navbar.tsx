@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { StyledNavbar } from "./Navbar.styled";
 import { FaCrown } from "react-icons/fa";
-import { AiTwotoneSetting } from "react-icons/ai";
+import { AiFillQuestionCircle, AiTwotoneSetting } from "react-icons/ai";
 import { MdOutlineColorLens } from "react-icons/md";
-import { BsKeyboard } from "react-icons/bs";
+import { BsKeyboard, BsQuestionLg } from "react-icons/bs";
 import { AppContext } from "../../helper/Context";
 import { auth } from "../../firebase/firebase-config";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import "tippy.js/dist/tippy.css";
 
 function Navbar() {
   let navigate = useNavigate();
-  const { setDisplayColorsModal } = useContext(AppContext);
+  const { setDisplayColorsModal, getUserErr, user } = useContext(AppContext);
 
   return (
     <StyledNavbar>
@@ -40,26 +40,29 @@ function Navbar() {
         </Tippy>
 
         <Tippy content="Settings">
-          <Link to="/settings">
+          <div>
             <AiTwotoneSetting className="pointer" />
-          </Link>
+          </div>
         </Tippy>
 
         <div
           onClick={() => {
-            if (!auth) {
+            if (getUserErr) {
               navigate("/login");
             }
           }}
           className="avatar pointer"
           style={{
-            backgroundImage: auth.currentUser
-              ? `url(${auth.currentUser?.photoURL})`
-              : "url(https://i.imgur.com/6VBx3io.png)",
+            backgroundImage: `url(${user?.userAvatar})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
+            display: "grid",
+            placeContent: "center",
+            backgroundColor: user?.userAvatar ? "#364453" : "transparent",
           }}
-        ></div>
+        >
+          {!user.userAvatar && <BsQuestionLg />}
+        </div>
       </div>
     </StyledNavbar>
   );

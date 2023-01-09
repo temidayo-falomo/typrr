@@ -21,7 +21,7 @@ export const StyledNavbar = styled.nav`
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      border: 5px #364453 solid;
+      border: 5px #000 solid;
     }
 
     .pointer {

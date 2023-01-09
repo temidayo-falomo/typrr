@@ -7,8 +7,9 @@ function Letter(props: any) {
 
   useEffect(() => {
     if (props.textData[props.number] === props.lastLetter) {
-      // setTextColor("green");
-      props.setWpm(props.wpm + 1);
+      if (!props.isBackspace) {
+        props.setWpm(props.wpm + 1);
+      }
     } else if (props.lastLetter !== props.textData[props.number]) {
       setTextColor("red");
       setErrorum(props.number);

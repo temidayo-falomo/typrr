@@ -3,7 +3,7 @@ import { collection, doc, getDoc, onSnapshot, query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import ColorsModal from "./components/colors-modal/ColorsModal";
-import { auth, db } from "./firebase/firebase-config";
+import { db } from "./firebase/firebase-config";
 import GlobalStyle from "./Globalstyles";
 import { AppContext } from "./helper/Context";
 import { offlineArr } from "./offline/OfflineArr";
@@ -26,6 +26,10 @@ function App() {
   //
   const [displayColorsModal, setDisplayColorsModal] = useState<boolean>(false);
 
+  //
+  const [getUserErr, setGetUserErr] = useState<boolean>(false);
+
+  //
   const getWordsFromApi = () => {
     setLoading(true);
 
@@ -66,11 +70,16 @@ function App() {
   //Get Current User By Auth.Id
 
   const getUser = async () => {
-    let id: string = localStorage.getItem("typrrUserId")!;
-    const userDoc = doc(db, "users", id);
-    await getDoc(userDoc).then((doc: any) => {
-      setUser(doc.data());
-    });
+    try {
+      let id: string = localStorage.getItem("typrrUserId")!;
+      const userDoc = doc(db, "users", id);
+      await getDoc(userDoc).then((doc: any) => {
+        setUser(doc.data());
+      });
+    } catch (error) {
+      console.log("Error getting User", error);
+      setGetUserErr(true);
+    }
   };
 
   useEffect(() => {
@@ -101,6 +110,7 @@ function App() {
         setDisplayColorsModal,
         users,
         setUsers,
+        getUserErr
       }}
     >
       <div className="App">
