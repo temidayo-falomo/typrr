@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { FaMedal } from "react-icons/fa";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../helper/Context";
@@ -35,7 +36,8 @@ function Leaderboards() {
         </div>
         <p>
           Typrr collects data from users around the world to judge their typing
-          speed & rate it on the leaderboards.
+          speed & rate it on the leaderboards. Note that this only collects data
+          for the 15 seconds test.
         </p>
       </div>
 
@@ -60,7 +62,8 @@ function Leaderboards() {
                 return (
                   <tr key={user?.id}>
                     <div className="join row center gap-1">
-                      <td>#{i + 1}</td>
+                      <td>{i + 1 === 1 ? <FaMedal /> : `#${i + 1}`}</td>
+
                       <td
                         className="circle"
                         style={{
@@ -72,8 +75,8 @@ function Leaderboards() {
                       ></td>
                       <td>{user?.username}</td>
                     </div>
-                    <td>{user?.highestWpm} Avg. Wpm</td>
-                    <td>{user?.highestAccuracy} Accuracy</td>
+                    <td>{user?.highestWpm} Wpm</td>
+                    <td>{user?.highestAccuracy}% Accuracy</td>
                   </tr>
                 );
               })}

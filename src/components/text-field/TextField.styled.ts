@@ -123,4 +123,14 @@ export const StyledTextField = styled.div`
       height: 32px;
     }
   }
+
+  @media(max-width: 800px) {
+    width: 95%;
+    line-height: 4rem;
+
+    .text-p {
+      width: 100%;
+      font-size: 2rem;
+    }
+  }
 `;

@@ -50,9 +50,20 @@ function Result(props: any) {
 
     if (props.wpm > user.highestWpm) {
       await updateDoc(userDoc, {
-        highestAccuracy: "80%",
         highestWpm: props.wpm,
       });
+    }
+
+    if (Math.floor((props.wpm / props.number) * 100) > user.highestAccuracy) {
+      if (Math.floor((props.wpm / props.number) * 100) < 100) {
+        await updateDoc(userDoc, {
+          highestAccuracy: Math.floor((props.wpm / props.number) * 100),
+        });
+      } else {
+        await updateDoc(userDoc, {
+          highestAccuracy: 100,
+        });
+      }
     }
   };
 
@@ -88,7 +99,7 @@ function Result(props: any) {
           </div>
           <div className="col btm">
             <span>raw</span>
-            <h4>6</h4>
+            <h4>{props.number + 1}</h4>
           </div>
           <div className="col btm">
             <span>characters</span>

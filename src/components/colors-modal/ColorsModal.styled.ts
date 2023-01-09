@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledColorsModal = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   bottom: 0;
   /* From https://css.glass */
@@ -11,11 +11,12 @@ export const StyledColorsModal = styled.div`
   backdrop-filter: blur(2.8px);
   -webkit-backdrop-filter: blur(2.8px);
   z-index: 99999;
+  overflow: auto;
 
   .modal {
-    width: 600px;
-    max-width: 600px;
-    min-width: 300px;
+    width: 90%;
+    max-width: 500px;
+    min-width: 230px;
     height: 80vh;
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
     position: absolute;

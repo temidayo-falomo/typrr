@@ -9,6 +9,8 @@ import ReactIsCapsLockActive from "@matsun/reactiscapslockactive";
 import Result from "../result/Result";
 import { MdOutlineRefresh } from "react-icons/md";
 import { FcAlarmClock } from "react-icons/fc";
+import Tippy from "@tippy.js/react";
+import "tippy.js/dist/tippy.css";
 
 function TextField(props: any) {
   const {
@@ -178,45 +180,53 @@ function TextField(props: any) {
         </>
       )}
       <div className="row btw gap-1 icons">
-        <div className="pointer" onClick={props.handleDownload}>
-          <RiScreenshot2Fill />
-        </div>
-        <div
-          className="pointer"
-          onClick={() => {
-            setLetterClicked(textData[0]);
-            setNumber(-1);
-            setLastLetter("");
-            setWordClicked(false);
-            setTpropVal(1);
-            props.setDisplayFooterAndNav(true);
-            setWpm(0);
-            setTextData(unChangedTextData);
+        <Tippy content="Screenshot">
+          <div className="pointer">
+            <RiScreenshot2Fill />
+          </div>
+        </Tippy>
 
-            let elms: any = document.getElementsByClassName("letter");
+        <Tippy content="Refresh">
+          <div
+            className="pointer"
+            onClick={() => {
+              setLetterClicked(textData[0]);
+              setNumber(-1);
+              setLastLetter("");
+              setWordClicked(false);
+              setTpropVal(1);
+              props.setDisplayFooterAndNav(true);
+              setWpm(0);
+              setTextData(unChangedTextData);
 
-            for (let i = 0; i < elms.length; i++) {
-              elms[i].style.color = "black";
-            }
-          }}
-        >
-          <MdOutlineRefresh />
-        </div>
-        <div
-          className="pointer"
-          onClick={() => {
-            getWordsFromApi();
-            setLetterClicked(textData[0]);
-            setNumber(-1);
-            setLastLetter("");
-            setWordClicked(false);
-            setTpropVal(1);
-            props.setDisplayFooterAndNav(true);
-            setWpm(0);
-          }}
-        >
-          <AiOutlineArrowRight />
-        </div>
+              let elms: any = document.getElementsByClassName("letter");
+
+              for (let i = 0; i < elms.length; i++) {
+                elms[i].style.color = "black";
+              }
+            }}
+          >
+            <MdOutlineRefresh />
+          </div>
+        </Tippy>
+
+        <Tippy content="Next">
+          <div
+            className="pointer"
+            onClick={() => {
+              getWordsFromApi();
+              setLetterClicked(textData[0]);
+              setNumber(-1);
+              setLastLetter("");
+              setWordClicked(false);
+              setTpropVal(1);
+              props.setDisplayFooterAndNav(true);
+              setWpm(0);
+            }}
+          >
+            <AiOutlineArrowRight />
+          </div>
+        </Tippy>
       </div>
     </StyledTextField>
   );

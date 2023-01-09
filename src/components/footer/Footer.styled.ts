@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
   width: 50%;
-  min-width: 500px;
+  min-width: 250px;
   max-width: 500px;
   margin: 1rem auto;
   height: 80px;
@@ -12,7 +12,7 @@ export const StyledFooter = styled.footer`
   gap: 4rem;
   flex-wrap: wrap;
   padding: 0 5px;
-  /* color: #364453; */
+
 
   .pointer {
     height: 80px;

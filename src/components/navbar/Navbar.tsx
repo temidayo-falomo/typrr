@@ -7,6 +7,8 @@ import { BsKeyboard } from "react-icons/bs";
 import { AppContext } from "../../helper/Context";
 import { auth } from "../../firebase/firebase-config";
 import { Link, useNavigate } from "react-router-dom";
+import Tippy from "@tippy.js/react";
+import "tippy.js/dist/tippy.css";
 
 function Navbar() {
   let navigate = useNavigate();
@@ -19,22 +21,29 @@ function Navbar() {
         <BsKeyboard className="pointer" style={{ fontSize: "2rem" }} />
       </div>
       <div className="links row center gap-1">
-        {
+        <Tippy content="Leaderboards">
           <Link
             to="/leaderboards"
             style={{ display: "grid", placeContent: "center" }}
           >
             <FaCrown className="pointer" />
           </Link>
-        }
-        <MdOutlineColorLens
-          className="pointer"
-          onClick={() => setDisplayColorsModal(true)}
-        />
+        </Tippy>
 
-        <Link to="/settings">
-          <AiTwotoneSetting className="pointer" />
-        </Link>
+        <Tippy content="Themes">
+          <div>
+            <MdOutlineColorLens
+              className="pointer"
+              onClick={() => setDisplayColorsModal(true)}
+            />
+          </div>
+        </Tippy>
+
+        <Tippy content="Settings">
+          <Link to="/settings">
+            <AiTwotoneSetting className="pointer" />
+          </Link>
+        </Tippy>
 
         <div
           onClick={() => {
