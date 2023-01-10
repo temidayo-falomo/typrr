@@ -20,6 +20,7 @@ function TextField(props: any) {
     timerCount,
     unChangedTextData,
     setTextData,
+    setDisplayFooter,
   } = useContext(AppContext);
 
   const [letterClicked, setLetterClicked] = useState(textData[0]);
@@ -50,6 +51,9 @@ function TextField(props: any) {
 
   //
   const [isBackspace, setIsBackspace] = useState<boolean>(false);
+
+  //slice val
+  const [sliceVal, setSliceVal] = useState<number>(250);
 
   //detecting the key pressed
   const detectKeydown = (e: any) => {
@@ -97,7 +101,7 @@ function TextField(props: any) {
               setIsBackspace(true);
               setLastLetter(textData[number - 1]);
               setNumber(number - 1);
-              setWpm(wpm - 1);
+              // setWpm(wpm - 1);
             }
           }}
           onChange={(e) => {
@@ -117,6 +121,10 @@ function TextField(props: any) {
               }
 
               setWordClicked(true);
+            }
+
+            if (number === 249) {
+              setSliceVal(sliceVal + 50);
             }
           }}
         />
@@ -147,7 +155,7 @@ function TextField(props: any) {
                 </span>
               </div>
               {textData
-                ?.slice(0, 120)
+                ?.slice(0, sliceVal)
                 ?.split("")
                 ?.map((text: any, i: any) => {
                   return (
@@ -197,6 +205,7 @@ function TextField(props: any) {
               props.setDisplayFooterAndNav(true);
               setWpm(0);
               setTextData(unChangedTextData);
+              setDisplayFooter(true);
 
               let elms: any = document.getElementsByClassName("letter");
 
@@ -221,6 +230,7 @@ function TextField(props: any) {
               setTpropVal(1);
               props.setDisplayFooterAndNav(true);
               setWpm(0);
+              setDisplayFooter(true);
             }}
           >
             <AiOutlineArrowRight />

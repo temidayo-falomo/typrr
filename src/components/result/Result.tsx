@@ -15,7 +15,8 @@ import { db } from "../../firebase/firebase-config";
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
 function Result(props: any) {
-  const { timerCount, user } = useContext(AppContext);
+  const { timerCount, user, displayFooter, setDisplayFooter } =
+    useContext(AppContext);
   const data = {
     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     datasets: [
@@ -84,19 +85,24 @@ function Result(props: any) {
     if (timerCount === 15) {
       handleAddResultToFirebase();
     }
+
+    setDisplayFooter(false);
   }, []);
+
+  let finalWpm = Math.floor(props.wpm / 5 / (timerCount / 60));
+  let finalAccuracy = Math.floor((props.wpm / props.number) * 100);
 
   return (
     <StyledResult>
       <div className="col" style={{ gap: "1rem" }}>
         <div className="col">
           <span>WPM</span>
-          <h2>{Math.floor(props.wpm / 5 / (timerCount / 60))}</h2>
+          <h2>{finalWpm >= 0 ? finalWpm : 0}</h2>
         </div>
 
         <div className="col">
           <span>ACC</span>
-          <h2>{Math.floor((props.wpm / props.number) * 100)}%</h2>
+          <h2>{finalAccuracy >= 0 ? finalAccuracy : 0}%</h2>
         </div>
       </div>
 
@@ -124,7 +130,7 @@ function Result(props: any) {
           </div>
           <div className="col btm">
             <span>time</span>
-            <h4>{timerCount}s</h4>
+            <h4>{localStorage.getItem("typrrTimerCount")}s</h4>
           </div>
         </div>
       </div>

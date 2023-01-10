@@ -15,8 +15,8 @@ export const StyledFooter = styled.footer`
 
 
   .pointer {
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     display: grid;
     place-content: center;
@@ -39,8 +39,8 @@ export const StyledFooter = styled.footer`
       position: absolute;
       top: 0;
       left: 0;
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
       background-color: #000;
     }
@@ -50,8 +50,8 @@ export const StyledFooter = styled.footer`
       position: absolute;
       top: 0;
       right: 0;
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       border-radius: 50%;
       background-color: #000;
     }

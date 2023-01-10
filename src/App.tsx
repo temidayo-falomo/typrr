@@ -14,7 +14,9 @@ import Login from "./pages/login/Login";
 function App() {
   const [user, setUser] = useState<object>({});
   const [wordLength, setWordLength] = useState<number>(15);
-  const [timerCount, setTimerCount] = useState<any>(15);
+  const [timerCount, setTimerCount] = useState<any>(
+    Number(localStorage.getItem("typrrTimerCount")) || 15
+  );
   const [textData, setTextData] = useState<string>("");
   const [unChangedTextData, setUnchangedTextData] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -29,14 +31,22 @@ function App() {
   const [getUserErr, setGetUserErr] = useState<boolean>(false);
 
   //
+  const [displayFooter, setDisplayFooter] = useState<boolean>(true);
+
+  //
   const getWordsFromApi = () => {
     setLoading(true);
 
     axios
-      .get("http://metaphorpsum.com/paragraphs/1")
+      .get("http://metaphorpsum.com/paragraphs/2")
       .then((res) => {
-        setTextData(res.data);
-        setUnchangedTextData(res.data);
+        if (res.data.length > 250) {
+          setTextData(res.data);
+          setUnchangedTextData(res.data);
+        } else {
+          setTextData(offlineArr[0]);
+          setUnchangedTextData(offlineArr[0]);
+        }
       })
       .then(() => {
         setLoading(false);
@@ -107,9 +117,12 @@ function App() {
         setLoading,
         displayColorsModal,
         setDisplayColorsModal,
+        displayFooter,
+        setDisplayFooter,
         users,
         setUsers,
-        getUserErr
+        getUserErr,
+
       }}
     >
       <div className="App">

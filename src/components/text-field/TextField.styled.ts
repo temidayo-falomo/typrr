@@ -32,12 +32,12 @@ export const StyledTextField = styled.div`
   }
 
   .text-p {
-    font-size: 2.8rem;
-    line-height: 4.4rem;
+    font-size: 2rem;
+    line-height: 3.7rem;
     display: inline-table;
     zoom: 1;
     width: 90%;
-    max-width: 750px;
+    max-width: 900px;
     min-width: 350px;
     text-align: center;
     text-justify: inter-word;
@@ -123,7 +123,7 @@ export const StyledTextField = styled.div`
     }
   }
 
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     width: 95%;
     line-height: 4rem;
 
