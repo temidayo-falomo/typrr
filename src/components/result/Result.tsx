@@ -20,7 +20,17 @@ function Result(props: any) {
     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     datasets: [
       {
-        data: ["15", "20", "25", "20", "10", "20", "15", "12", props.wpm],
+        data: [
+          "15",
+          "20",
+          "25",
+          "20",
+          "10",
+          "20",
+          "15",
+          "12",
+          Math.floor(props.wpm / 5 / (timerCount / 60)),
+        ],
         backgroundColor: "royalblue",
         borderColor: "royalblue",
         pointBorderColor: "green",
@@ -50,7 +60,7 @@ function Result(props: any) {
 
     if (props.wpm > user.highestWpm) {
       await updateDoc(userDoc, {
-        highestWpm: props.wpm,
+        highestWpm: Math.floor(props.wpm / 5 / (timerCount / 60)),
       });
     }
 
@@ -81,7 +91,7 @@ function Result(props: any) {
       <div className="col" style={{ gap: "1rem" }}>
         <div className="col">
           <span>WPM</span>
-          <h2>{props.wpm}</h2>
+          <h2>{Math.floor(props.wpm / 5 / (timerCount / 60))}</h2>
         </div>
 
         <div className="col">
@@ -109,7 +119,7 @@ function Result(props: any) {
           <div className="col btm">
             <span>characters</span>
             <h4>
-              0{props.number + 1}/{props.number + 1 - props.wpm}/0
+              0{props.number + 1}/{props.number + 1 - props.wpm}/{props.wpm / 5}
             </h4>
           </div>
           <div className="col btm">

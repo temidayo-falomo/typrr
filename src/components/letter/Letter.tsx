@@ -12,6 +12,7 @@ function Letter(props: any) {
       }
     } else if (props.lastLetter !== props.textData[props.number]) {
       setTextColor("red");
+      props.setWpm(props.wpm - 1);
       setErrorum(props.number);
     }
 

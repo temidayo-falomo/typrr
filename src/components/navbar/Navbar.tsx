@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { StyledNavbar } from "./Navbar.styled";
 import { FaCrown } from "react-icons/fa";
-import { AiFillQuestionCircle, AiTwotoneSetting } from "react-icons/ai";
+import { AiTwotoneSetting } from "react-icons/ai";
 import { MdOutlineColorLens } from "react-icons/md";
 import { BsKeyboard, BsQuestionLg } from "react-icons/bs";
 import { AppContext } from "../../helper/Context";
-import { auth } from "../../firebase/firebase-config";
 import { Link, useNavigate } from "react-router-dom";
 import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";

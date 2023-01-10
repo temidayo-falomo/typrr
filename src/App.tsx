@@ -10,7 +10,6 @@ import { offlineArr } from "./offline/OfflineArr";
 import Home from "./pages/home/Home";
 import Leaderboards from "./pages/leaderboards/Leaderboards";
 import Login from "./pages/login/Login";
-import Settings from "./pages/settings/Settings";
 
 function App() {
   const [user, setUser] = useState<object>({});
@@ -120,7 +119,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/leaderboards" element={<Leaderboards />} />
-          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </AppContext.Provider>

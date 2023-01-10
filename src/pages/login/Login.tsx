@@ -1,5 +1,5 @@
 import { signInWithPopup } from "firebase/auth";
-import { collection, doc, onSnapshot, query, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import React, { useContext, useEffect } from "react";
 import { FaPhone } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -7,6 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth, db, provider } from "../../firebase/firebase-config";
 import { AppContext } from "../../helper/Context";
 import { StyledLogin } from "./Login.styled";
+import Tippy from "@tippy.js/react";
+import "tippy.js/dist/tippy.css";
 
 function Login() {
   const { users, getAllUsers } = useContext(AppContext);
@@ -50,7 +52,8 @@ function Login() {
       <div className="box col">
         <div className="row btw center top">
           <h2>Login</h2>
-          <Link to="/">Neither?</Link>
+
+          <Link to="/">Neither</Link>
         </div>
 
         <div className="col btm">
@@ -60,9 +63,12 @@ function Login() {
           >
             Sign in with Google <FcGoogle />
           </button>
-          <button className="row center gap-5 center-js">
-            Sign in with Phone <FaPhone />
-          </button>
+
+          <Tippy content="Unavailable" placement="bottom">
+            <button className="row center gap-5 center-js">
+              Sign in with Phone <FaPhone />
+            </button>
+          </Tippy>
         </div>
       </div>
     </StyledLogin>
