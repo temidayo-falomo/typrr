@@ -38,11 +38,21 @@ function App() {
     setLoading(true);
 
     axios
-      .get("http://metaphorpsum.com/paragraphs/2")
+      .get("https://litipsum.com/api")
       .then((res) => {
         if (res.data.length > 250) {
-          setTextData(res.data);
-          setUnchangedTextData(res.data);
+          setTextData(
+            res.data
+              ?.toLowerCase()
+              .replace(/[^\w\s\']|_/g, "")
+              .replace(/\s+/g, " ")
+          );
+          setUnchangedTextData(
+            res.data
+              ?.toLowerCase()
+              .replace(/[^\w\s\']|_/g, "")
+              .replace(/\s+/g, " ")
+          );
         } else {
           setTextData(offlineArr[0]);
           setUnchangedTextData(offlineArr[0]);
@@ -122,7 +132,6 @@ function App() {
         users,
         setUsers,
         getUserErr,
-
       }}
     >
       <div className="App">

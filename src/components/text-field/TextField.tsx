@@ -123,7 +123,7 @@ function TextField(props: any) {
               setWordClicked(true);
             }
 
-            if (number === 249) {
+            if (number === sliceVal - 1) {
               setSliceVal(sliceVal + 50);
             }
           }}
@@ -156,8 +156,8 @@ function TextField(props: any) {
               </div>
               {textData
                 ?.slice(0, sliceVal)
-                ?.split("")
-                ?.map((text: any, i: any) => {
+                .split("")
+                .map((text: any, i: any) => {
                   return (
                     <React.Fragment key={i}>
                       <Letter
