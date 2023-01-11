@@ -47,6 +47,7 @@ export const StyledTextField = styled.div`
   .input {
     width: 90%;
     margin: 0 auto;
+    height: 0;
   }
 
   input {

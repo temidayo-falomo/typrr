@@ -12,6 +12,7 @@ export const StyledFooter = styled.footer`
   gap: 4rem;
   flex-wrap: wrap;
   padding: 0 5px;
+  margin-bottom: 5rem;
 
 
   .pointer {

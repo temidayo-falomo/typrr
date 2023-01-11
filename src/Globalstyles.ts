@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
   .App {
     position: relative;
-    min-height: 100vh;
+    overflow: hidden;
   }
 
   a {

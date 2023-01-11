@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledLeaderboards = styled.div`
   height: 100vh;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-top: 2%;
 
   .top {
@@ -24,8 +25,8 @@ export const StyledLeaderboards = styled.div`
     }
 
     p {
-      width: 80%;
-      max-width: 700px;
+      width: 90%;
+      max-width: 800px;
       margin: auto;
       text-align: center;
       font-size: 1.5rem;
@@ -35,8 +36,8 @@ export const StyledLeaderboards = styled.div`
 
   .leaderboard-rect {
     width: 70%;
+    min-width: 250px;
     margin: 2rem auto;
-    overflow-y: auto;
     padding: 30px;
     border-collapse: collapse;
     text-align: center;
@@ -47,7 +48,6 @@ export const StyledLeaderboards = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     gap: 5rem;
-    /* height: 70vh; */
 
     .lds-ring {
       display: inline-block;
@@ -99,14 +99,15 @@ export const StyledLeaderboards = styled.div`
     tr {
       display: flex;
       justify-content: space-around;
-      padding: 20px;
+      padding: 15px 20px;
       min-height: 80px;
+      min-width: 250px;
       align-items: center;
-      width: 80%;
+      width: 100%;
       margin: auto;
       border-radius: 10px;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       overflow-x: auto;
       overflow-y: hidden;
       gap: 2rem;
@@ -117,7 +118,7 @@ export const StyledLeaderboards = styled.div`
       }
 
       .join {
-        margin-left: -5%;
+        /* margin-left: -5%; */
         .circle {
           min-width: 50px;
           min-height: 50px;
@@ -125,6 +126,42 @@ export const StyledLeaderboards = styled.div`
           border: 2px #000 solid;
           background-color: #000;
         }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .top {
+      width: 100%;
+
+      p {
+        width: 95%;
+      }
+    }
+    .leaderboard-rect {
+      width: 98%;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .top {
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+    }
+    .leaderboard-rect {
+      width: 98%;
+
+      tr th {
+        font-size: 1.2rem;
+      }
+
+      tr {
+        font-size: 1rem;
       }
     }
   }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledHome = styled.div`
-  height: 85vh;
-  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
