@@ -59,7 +59,7 @@ function ColorsModal() {
                 return data;
               }
             })
-            .map((color, i: any) => {
+            .map((color: any, i: any) => {
               return (
                 <div
                   className={`option ${i === number && "option-active"}`}
@@ -67,13 +67,21 @@ function ColorsModal() {
                   onMouseOver={() => {
                     setTheme(color);
                     setNumber(i);
-                    // localStorage.setItem("typrrColor", i);
+                    localStorage.setItem("typrrColor", i);
+                    localStorage.setItem(
+                      "typrrColorScheme",
+                      JSON.stringify(color)
+                    );
                   }}
                   onClick={() => {
                     setNumber(i);
                     setDisplayInput(true);
                     setDisplayColorsModal(false);
                     localStorage.setItem("typrrColor", i);
+                    localStorage.setItem(
+                      "typrrColorScheme",
+                      JSON.stringify(color)
+                    );
                   }}
                 >
                   {color.colorName}

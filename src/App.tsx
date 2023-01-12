@@ -21,12 +21,16 @@ function App() {
   const [unChangedTextData, setUnchangedTextData] = useState<string>("");
 
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState<object>({
-    textColor: "#000",
-    backgroundColor: "#ECE6E4",
-    scrollColor: "orange",
-  });
 
+  let localStorageTheme: any = localStorage.getItem("typrrColorScheme");
+
+  const [theme, setTheme] = useState<object>(
+    JSON.parse(localStorageTheme) || {
+      textColor: "#000",
+      backgroundColor: "#ECE6E4",
+      scrollColor: "orange",
+    }
+  );
   //
   const [users, setUsers] = useState<any>();
 
@@ -122,6 +126,8 @@ function App() {
   useEffect(() => {
     getUser();
   }, []);
+
+  console.log(localStorage.getItem("typrrColorScheme"));
 
   return (
     <AppContext.Provider
