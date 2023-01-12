@@ -4,7 +4,6 @@ export const StyledLeaderboards = styled.div`
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-top: 2%;
 
   .top {
     width: 80%;
@@ -22,6 +21,8 @@ export const StyledLeaderboards = styled.div`
 
     h1 {
       font-size: 4rem;
+      text-align: center;
+      width: 100%;
     }
 
     p {

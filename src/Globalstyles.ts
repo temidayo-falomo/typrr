@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${(props: any) => props.theme.backgroundColor};
     color:  ${(props: any) => props.theme.textColor};
+    transition: 0.5s ease;
     margin: 0;
   }
 

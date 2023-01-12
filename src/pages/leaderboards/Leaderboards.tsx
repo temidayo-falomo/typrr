@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaMedal } from "react-icons/fa";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
 import { AppContext } from "../../helper/Context";
 import { StyledLeaderboards } from "./Leaderboards.styled";
 
@@ -22,17 +23,18 @@ function Leaderboards() {
 
   return (
     <StyledLeaderboards>
+      <Navbar />
       <div className="top">
         <div className="row btw center">
-          <Link to="/">
+          {/* <Link to="/">
             <MdOutlineKeyboardBackspace
               className="pointer"
               style={{ fontSize: "3rem" }}
             />
-          </Link>
+          </Link> */}
 
           <h1>Leaderboards</h1>
-          <div></div>
+          {/* <div></div> */}
         </div>
         <p>
           Typrr collects data from users around the world to judge their typing

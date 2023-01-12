@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledColorsModal = styled.div`
   height: 100vh;
   width: 100%;
+
   position: fixed;
   bottom: 0;
   top: 0;
@@ -18,18 +19,18 @@ export const StyledColorsModal = styled.div`
     max-width: 500px;
     min-width: 230px;
     height: 80vh;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    border: 2px ${(props: any) => props.theme.textColor} solid;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
     top: 0;
     bottom: 0;
-    background-color: #ece6e4;
+    background-color: ${(props: any) => props.theme.backgroundColor};
     margin: auto;
     padding: 20px;
     border-radius: 20px;
     overflow-y: auto;
-   
+    transition: 0.5s ease;
   }
 
   .top {

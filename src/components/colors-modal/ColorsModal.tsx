@@ -6,7 +6,7 @@ import { AppContext } from "../../helper/Context";
 import { palette } from "./Palette";
 
 function ColorsModal() {
-  const { setDisplayColorsModal, setDisplayInput, setTheme } =
+  const { setDisplayColorsModal, setDisplayInput, setTheme, theme } =
     useContext(AppContext);
 
   const [searchVal, setSearchVal] = useState<string>("");
@@ -16,7 +16,7 @@ function ColorsModal() {
   }, []);
 
   return (
-    <StyledColorsModal>
+    <StyledColorsModal theme={theme}>
       <div className="modal">
         <div className="top">
           <MdOutlineCancel
@@ -65,8 +65,12 @@ function ColorsModal() {
                   onMouseOver={() => {
                     setTheme(color);
                   }}
+                  onClick={() => {
+                    setDisplayInput(true);
+                    setDisplayColorsModal(false);
+                  }}
                 >
-                  {color.backgroundColor}
+                  {color.colorName}
                 </div>
               );
             })}

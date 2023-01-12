@@ -15,10 +15,10 @@ function Navbar() {
 
   return (
     <StyledNavbar>
-      <div className="logo row center gap-1">
+      <Link to="/" className="logo row center gap-1">
         <h3>Typrr</h3>
         <BsKeyboard className="pointer" style={{ fontSize: "2rem" }} />
-      </div>
+      </Link>
       <div className="links row center gap-1">
         <Tippy content="Leaderboards">
           <Link
