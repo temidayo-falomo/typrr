@@ -23,7 +23,6 @@ export const StyledFooter = styled.footer`
     place-content: center;
     font-size: 2rem;
     padding: 10px;
-    /* border: 4px #000 solid; */
     transition: 0.5 all ease;
   }
 

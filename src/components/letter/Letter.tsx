@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../helper/Context";
 import { StyledLetter } from "./Letter.styled";
 
 function Letter(props: any) {
+  const { theme } = useContext(AppContext);
   const [textColor, setTextColor] = useState<any>("gainsboro");
   const [errorum, setErrorum] = useState<any>(0);
 
@@ -29,7 +31,7 @@ function Letter(props: any) {
         }
 
         if (props.isBackspace) {
-          elms[props.number + 1].style.color = "black";
+          elms[props.number + 1].style.color = theme.textColor;
         }
       }
     };

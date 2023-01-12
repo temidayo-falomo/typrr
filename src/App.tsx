@@ -19,7 +19,13 @@ function App() {
   );
   const [textData, setTextData] = useState<string>("");
   const [unChangedTextData, setUnchangedTextData] = useState<string>("");
+
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState<object>({
+    textColor: "#000",
+    backgroundColor: "#ECE6E4",
+    scrollColor: "orange",
+  });
 
   //
   const [users, setUsers] = useState<any>();
@@ -34,6 +40,9 @@ function App() {
   const [displayFooter, setDisplayFooter] = useState<boolean>(true);
 
   //
+  const [displayInput, setDisplayInput] = useState<boolean>(true);
+
+  //get words from api
   const getWordsFromApi = () => {
     setLoading(true);
 
@@ -87,7 +96,6 @@ function App() {
   };
 
   //Get Current User By Auth.Id
-
   const getUser = async () => {
     try {
       let id: string = localStorage.getItem("typrrUserId")!;
@@ -101,6 +109,16 @@ function App() {
     }
   };
 
+  // //change theme in color modal
+  // const toggleTheme = () => {
+  //   // theme
+  //   // ?.backgroundColor === "#ECE6E4" ? setTheme({
+  //   //   textColor: "#fff",
+  //   // }) : setTheme({
+  //   //   textColor: "#000",
+  //   // });
+  // };
+
   useEffect(() => {
     getUser();
   }, []);
@@ -110,6 +128,9 @@ function App() {
       value={{
         user,
         setUser,
+        theme,
+        setTheme,
+
         wordLength,
         setWordLength,
         textData,
@@ -132,10 +153,13 @@ function App() {
         users,
         setUsers,
         getUserErr,
+
+        displayInput,
+        setDisplayInput,
       }}
     >
       <div className="App">
-        <GlobalStyle />
+        <GlobalStyle theme={theme} />
         {displayColorsModal && <ColorsModal />}
         <Routes>
           <Route path="/" element={<Home />} />

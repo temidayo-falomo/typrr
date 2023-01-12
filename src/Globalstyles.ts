@@ -10,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #ECE6E4;
-    color: #000;
+    background-color: ${(props: any) => props.theme.backgroundColor};
+    color:  ${(props: any) => props.theme.textColor};
     margin: 0;
   }
 

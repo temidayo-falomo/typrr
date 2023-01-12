@@ -24,7 +24,6 @@ export const StyledTextField = styled.div`
     }
 
     span {
-      color: #000;
       font-size: 2.5rem;
       display: grid;
       place-content: center;

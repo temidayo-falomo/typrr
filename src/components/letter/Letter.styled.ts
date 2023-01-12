@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledLetter = styled.span`
-  color: black;
   position: relative;
   
   word-wrap: break-word;

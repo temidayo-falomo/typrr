@@ -21,6 +21,8 @@ function TextField(props: any) {
     unChangedTextData,
     setTextData,
     setDisplayFooter,
+    displayInput,
+    theme
   } = useContext(AppContext);
 
   const [letterClicked, setLetterClicked] = useState(textData[0]);
@@ -53,7 +55,7 @@ function TextField(props: any) {
   const [isBackspace, setIsBackspace] = useState<boolean>(false);
 
   //slice val
-  const [sliceVal, setSliceVal] = useState<number>(250);
+  const [sliceVal, setSliceVal] = useState<number>(220);
 
   //detecting the key pressed
   const detectKeydown = (e: any) => {
@@ -85,50 +87,52 @@ function TextField(props: any) {
           </ReactIsCapsLockActive>
         }
       </div>
-      <div className="input">
-        <input
-          ref={inputRef}
-          type="text"
-          // value={lastLetter}
-          autoFocus={true}
-          onBlur={({ target }) => target.focus()}
-          onKeyDown={(e) => {
-            if (e.key === "Backspace" && number > 0) {
-              let elms: any = document.getElementsByClassName("letter");
-              for (let i = 0; i < elms.length; i++) {
-                elms[number].style.color = "black";
+      {displayInput && (
+        <div className="input">
+          <input
+            ref={inputRef}
+            type="text"
+            // value={lastLetter}
+            autoFocus={true}
+            onBlur={({ target }) => target.focus()}
+            onKeyDown={(e) => {
+              if (e.key === "Backspace" && number > 0) {
+                let elms: any = document.getElementsByClassName("letter");
+                for (let i = 0; i < elms.length; i++) {
+                  elms[number].style.color = "black";
+                }
+                setIsBackspace(true);
+                setLastLetter(textData[number - 1]);
+                setNumber(number - 1);
+                // setWpm(wpm - 1);
               }
-              setIsBackspace(true);
-              setLastLetter(textData[number - 1]);
-              setNumber(number - 1);
-              // setWpm(wpm - 1);
-            }
-          }}
-          onChange={(e) => {
-            // console.log(e.target);
-            setIsBackspace(false);
-            if (!isBackspace) {
-              if (tpropVal !== 0) {
-                setLastLetter(e.target.value[e.target.value.length - 1]);
-                setNumber(number + 1);
-                setTotalKeysPressed(totalKeysPressed + 1);
+            }}
+            onChange={(e) => {
+              // console.log(e.target);
+              setIsBackspace(false);
+              if (!isBackspace) {
+                if (tpropVal !== 0) {
+                  setLastLetter(e.target.value[e.target.value.length - 1]);
+                  setNumber(number + 1);
+                  setTotalKeysPressed(totalKeysPressed + 1);
+                }
+
+                if (tpropVal === 0) {
+                  props.setDisplayFooterAndNav(true);
+                } else {
+                  props.setDisplayFooterAndNav(false);
+                }
+
+                setWordClicked(true);
               }
 
-              if (tpropVal === 0) {
-                props.setDisplayFooterAndNav(true);
-              } else {
-                props.setDisplayFooterAndNav(false);
+              if (number === sliceVal - 1) {
+                setSliceVal(sliceVal + 50);
               }
-
-              setWordClicked(true);
-            }
-
-            if (number === sliceVal - 1) {
-              setSliceVal(sliceVal + 50);
-            }
-          }}
-        />
-      </div>
+            }}
+          />
+        </div>
+      )}
       {tpropVal === 0 ? (
         <Result
           wpm={wpm}
