@@ -7,7 +7,7 @@ import { AppContext } from "../../helper/Context";
 import Timer from "../timer/Timer";
 import ReactIsCapsLockActive from "@matsun/reactiscapslockactive";
 import Result from "../result/Result";
-import { MdOutlineRefresh } from "react-icons/md";
+import { MdOutlineRefresh, MdTimer } from "react-icons/md";
 import { FcAlarmClock } from "react-icons/fc";
 import Tippy from "@tippy.js/react";
 import "tippy.js/dist/tippy.css";
@@ -22,7 +22,7 @@ function TextField(props: any) {
     setTextData,
     setDisplayFooter,
     displayInput,
-    theme
+    theme,
   } = useContext(AppContext);
 
   const [letterClicked, setLetterClicked] = useState(textData[0]);
@@ -77,7 +77,7 @@ function TextField(props: any) {
   }, [capsState]);
 
   return (
-    <StyledTextField number={number}>
+    <StyledTextField number={number} theme={theme}>
       <div style={{ position: "absolute", top: "5%" }}>
         {
           <ReactIsCapsLockActive>
@@ -155,7 +155,7 @@ function TextField(props: any) {
                   s
                 </div>
                 <span>
-                  <FcAlarmClock />
+                  <MdTimer />
                 </span>
               </div>
               {textData
@@ -214,7 +214,7 @@ function TextField(props: any) {
               let elms: any = document.getElementsByClassName("letter");
 
               for (let i = 0; i < elms.length; i++) {
-                elms[i].style.color = "black";
+                elms[i].style.color = theme.textColor;
               }
             }}
           >

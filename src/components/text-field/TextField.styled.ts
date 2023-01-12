@@ -92,7 +92,7 @@ export const StyledTextField = styled.div`
     position: absolute;
     left: 8px;
     width: 16px;
-    background: #000;
+    background: ${(props: any) => props.theme.textColor};
     animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   }
 

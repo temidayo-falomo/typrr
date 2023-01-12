@@ -88,9 +88,10 @@ export const StyledLeaderboards = styled.div`
     }
 
     tr:nth-of-type(1) {
-      background-color: #000;
-      color: #fff;
+      background-color: ${(props: any) => props.theme.textColor};
+      color: ${(props: any) => props.theme.backgroundColor};
       justify-content: space-around !important;
+      transition: 0.5s ease;
     }
 
     tr th {
@@ -104,14 +105,16 @@ export const StyledLeaderboards = styled.div`
       min-height: 80px;
       min-width: 250px;
       align-items: center;
-      width: 100%;
+      width: 85%;
       margin: auto;
       border-radius: 10px;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
       font-size: 1.3rem;
       overflow-x: auto;
       overflow-y: hidden;
       gap: 2rem;
+      overflow: hidden;
+      font-weight: 600;
 
       td {
         display: inline;
@@ -145,6 +148,10 @@ export const StyledLeaderboards = styled.div`
   }
 
   @media (max-width: 440px) {
+    .circle {
+      min-width: 20px !important;
+      min-height: 20px !important;
+    }
     .top {
       h1 {
         font-size: 2rem;

@@ -55,21 +55,23 @@ function Result(props: any) {
     },
   };
 
+  let finalWpm = Math.floor(props.wpm / 5 / (timerCount / 60));
+  let finalAccuracy = Math.floor((props.wpm / props.number) * 100);
+
   const handleAddResultToFirebase = async () => {
     let id: string = localStorage.getItem("typrrUserId")!;
     const userDoc = doc(db, "users", id);
 
-    if (props.wpm > user.highestWpm) {
+    if (finalWpm > user.highestWpm) {
       await updateDoc(userDoc, {
-        highestWpm: Math.floor(props.wpm / 5 / (timerCount / 60)),
+        highestWpm: finalWpm,
       });
     }
 
-    if (Math.floor((props.wpm / props.number) * 100) > user.highestAccuracy) {
+    if (finalAccuracy > user?.highestAccuracy) {
       //second if check to know if
       // figures are greater than 100(which is the accepted limit)
-
-      if (Math.floor((props.wpm / props.number) * 100) < 100) {
+      if (finalAccuracy < 100) {
         await updateDoc(userDoc, {
           highestAccuracy: Math.floor((props.wpm / props.number) * 100),
         });
@@ -88,9 +90,6 @@ function Result(props: any) {
 
     setDisplayFooter(false);
   }, []);
-
-  let finalWpm = Math.floor(props.wpm / 5 / (timerCount / 60));
-  let finalAccuracy = Math.floor((props.wpm / props.number) * 100);
 
   return (
     <StyledResult>

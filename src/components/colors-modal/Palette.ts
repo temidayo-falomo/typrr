@@ -8,35 +8,35 @@ export const palette = [
   {
     textColor: "#223248",
     backgroundColor: "#AC87FF",
-    scrollColor: "orange",
+    scrollColor: "#CBD5E1",
     colorName: "Violetta",
   },
 
   {
     textColor: "#164E63",
     backgroundColor: "#41CBBF",
-    scrollColor: "orange",
+    scrollColor: "#BEC9DF",
     colorName: "Oceanica",
   },
 
   {
     textColor: "#7E81FF",
     backgroundColor: "#1E293B",
-    scrollColor: "orange",
+    scrollColor: "#FAF5FF",
     colorName: "Washed Purple",
   },
 
   {
     textColor: "#D81C81",
     backgroundColor: "#FDF0D5",
-    scrollColor: "blue",
+    scrollColor: "#3A3335",
     colorName: "Cheesecake",
   },
 
   {
     textColor: "#64230D",
     backgroundColor: "#FF822C",
-    scrollColor: "blue",
+    scrollColor: "#CBD5E1",
     colorName: "Seventies Wallpaper",
   },
 
@@ -64,7 +64,7 @@ export const palette = [
   {
     textColor: "#37465D",
     backgroundColor: "#F999CB",
-    scrollColor: "black",
+    scrollColor: "#E2E8F0",
     colorName: "Pink",
   },
 

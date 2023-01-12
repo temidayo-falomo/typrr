@@ -63,6 +63,7 @@ export const StyledColorsModal = styled.div`
       border: none;
       background-color: transparent;
       font-family: "Poppins", sans-serif;
+      color: ${(props: any) => props.theme.textColor};
     }
   }
 
@@ -74,15 +75,22 @@ export const StyledColorsModal = styled.div`
       width: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       cursor: pointer;
       font-family: "Poppins", sans-serif !important;
       font-weight: 400;
       font-size: 0.9rem;
       border-radius: 5px;
+      transition: 0;
 
       :hover {
-        background-color: gainsboro;
+        border: 1px ${(props: any) => props.theme.textColor} solid;
+        padding: 9px;
       }
+    }
+
+    .option-active {
+      background-color: ${(props: any) => props.theme.scrollColor};
     }
   }
 `;

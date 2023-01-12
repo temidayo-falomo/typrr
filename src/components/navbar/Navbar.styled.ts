@@ -16,12 +16,12 @@ export const StyledNavbar = styled.nav`
 
   .links {
     gap: 2rem;
-    
+
     .avatar {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      border: 5px #000 solid;
+      border: 5px ${(props: any) => props.theme.textColor} solid;
     }
 
     .pointer {

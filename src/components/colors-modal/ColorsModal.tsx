@@ -4,12 +4,16 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { MdOutlineCancel } from "react-icons/md";
 import { AppContext } from "../../helper/Context";
 import { palette } from "./Palette";
+import { AiOutlineCheck } from "react-icons/ai";
 
 function ColorsModal() {
   const { setDisplayColorsModal, setDisplayInput, setTheme, theme } =
     useContext(AppContext);
 
   const [searchVal, setSearchVal] = useState<string>("");
+  const [number, setNumber] = useState<any>(
+    Number(localStorage.getItem("typrrColor")) || 0
+  );
 
   useEffect(() => {
     setDisplayInput(false);
@@ -50,27 +54,30 @@ function ColorsModal() {
               if (searchVal === "") {
                 return data;
               } else if (
-                data.backgroundColor
-                  .toLowerCase()
-                  .includes(searchVal.toLowerCase())
+                data.colorName.toLowerCase().includes(searchVal.toLowerCase())
               ) {
                 return data;
               }
             })
-            .map((color, i) => {
+            .map((color, i: any) => {
               return (
                 <div
-                  className="option"
+                  className={`option ${i === number && "option-active"}`}
                   key={i}
                   onMouseOver={() => {
                     setTheme(color);
+                    setNumber(i);
+                    // localStorage.setItem("typrrColor", i);
                   }}
                   onClick={() => {
+                    setNumber(i);
                     setDisplayInput(true);
                     setDisplayColorsModal(false);
+                    localStorage.setItem("typrrColor", i);
                   }}
                 >
                   {color.colorName}
+                  {i === number && <AiOutlineCheck />}
                 </div>
               );
             })}

@@ -44,6 +44,7 @@ function Letter(props: any) {
       textColor={textColor}
       number={props.number}
       index={props.index}
+      theme={theme}
       className="letter"
     >
       {props.text}

@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaMedal } from "react-icons/fa";
-import { MdOutlineKeyboardBackspace } from "react-icons/md";
-import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import { AppContext } from "../../helper/Context";
 import { StyledLeaderboards } from "./Leaderboards.styled";
 
 function Leaderboards() {
-  const { users, getAllUsers } = useContext(AppContext);
+  const { users, getAllUsers, theme } = useContext(AppContext);
 
   const [usersLoading, setUsersLoading] = useState(true);
 
@@ -22,7 +20,7 @@ function Leaderboards() {
   }, [users]);
 
   return (
-    <StyledLeaderboards>
+    <StyledLeaderboards theme={theme}>
       <Navbar />
       <div className="top">
         <div className="row btw center">

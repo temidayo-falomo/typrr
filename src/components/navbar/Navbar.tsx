@@ -11,10 +11,11 @@ import "tippy.js/dist/tippy.css";
 
 function Navbar() {
   let navigate = useNavigate();
-  const { setDisplayColorsModal, getUserErr, user } = useContext(AppContext);
+  const { setDisplayColorsModal, getUserErr, user, theme } =
+    useContext(AppContext);
 
   return (
-    <StyledNavbar>
+    <StyledNavbar theme={theme}>
       <Link to="/" className="logo row center gap-1">
         <h3>Typrr</h3>
         <BsKeyboard className="pointer" style={{ fontSize: "2rem" }} />
