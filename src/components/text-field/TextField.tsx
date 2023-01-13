@@ -76,6 +76,7 @@ function TextField(props: any) {
     document.addEventListener("keydown", detectKeydown, true);
   }, [capsState]);
 
+  //
   return (
     <StyledTextField number={number} theme={theme}>
       <div style={{ position: "absolute", top: "5%" }}>
@@ -99,7 +100,7 @@ function TextField(props: any) {
               if (e.key === "Backspace" && number > 0) {
                 let elms: any = document.getElementsByClassName("letter");
                 for (let i = 0; i < elms.length; i++) {
-                  elms[number].style.color = "black";
+                  elms[number].style.color = theme.textColor;
                 }
                 setIsBackspace(true);
                 setLastLetter(textData[number - 1]);
@@ -108,7 +109,6 @@ function TextField(props: any) {
               }
             }}
             onChange={(e) => {
-              // console.log(e.target);
               setIsBackspace(false);
               if (!isBackspace) {
                 if (tpropVal !== 0) {

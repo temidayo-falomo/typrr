@@ -14,8 +14,10 @@ function Navbar() {
   const { setDisplayColorsModal, getUserErr, user, theme } =
     useContext(AppContext);
 
+  console.log(getUserErr);
+
   return (
-    <StyledNavbar theme={theme}>
+    <StyledNavbar theme={theme} getUserErr={getUserErr}>
       <Link to="/" className="logo row center gap-1">
         <h3>Typrr</h3>
         <BsKeyboard className="pointer" style={{ fontSize: "2rem" }} />

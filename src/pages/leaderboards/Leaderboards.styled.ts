@@ -67,7 +67,8 @@ export const StyledLeaderboards = styled.div`
       border: 8px solid #000;
       border-radius: 50%;
       animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: #000 transparent transparent transparent;
+      border-color: ${(props: any) => props.theme.textColor} transparent
+        transparent transparent;
     }
     .lds-ring div:nth-child(1) {
       animation-delay: -0.45s;

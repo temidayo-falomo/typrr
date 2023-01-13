@@ -7,6 +7,8 @@ export const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  margin-top: ${(props: any) => props.getUserErr && "3rem"};
 
   .logo {
     h3 {

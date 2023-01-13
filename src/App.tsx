@@ -11,6 +11,8 @@ import Home from "./pages/home/Home";
 import Leaderboards from "./pages/leaderboards/Leaderboards";
 import Login from "./pages/login/Login";
 
+//TODO: Add Highscore Notification.
+
 function App() {
   const [user, setUser] = useState<object>({});
   const [wordLength, setWordLength] = useState<number>(15);
@@ -39,6 +41,9 @@ function App() {
 
   //
   const [getUserErr, setGetUserErr] = useState<boolean>(false);
+
+  //
+  const [userErrMsg, setUserErrMsg] = useState<any>("");
 
   //
   const [displayFooter, setDisplayFooter] = useState<boolean>(true);
@@ -81,6 +86,7 @@ function App() {
           offlineArr[Math.floor(Math.random() * offlineArr.length)]
         );
         setLoading(false);
+        setUserErrMsg(err);
       });
   };
 
@@ -108,26 +114,16 @@ function App() {
         setUser(doc.data());
       });
     } catch (error) {
-      console.log("Error getting User", error);
+      console.log(error);
       setGetUserErr(true);
     }
   };
-
-  // //change theme in color modal
-  // const toggleTheme = () => {
-  //   // theme
-  //   // ?.backgroundColor === "#ECE6E4" ? setTheme({
-  //   //   textColor: "#fff",
-  //   // }) : setTheme({
-  //   //   textColor: "#000",
-  //   // });
-  // };
 
   useEffect(() => {
     getUser();
   }, []);
 
-  console.log(localStorage.getItem("typrrColorScheme"));
+  console.log("hello", users);
 
   return (
     <AppContext.Provider
@@ -159,6 +155,7 @@ function App() {
         users,
         setUsers,
         getUserErr,
+        userErrMsg,
 
         displayInput,
         setDisplayInput,

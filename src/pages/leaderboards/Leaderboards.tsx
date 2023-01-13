@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { FaMedal } from "react-icons/fa";
 import Navbar from "../../components/navbar/Navbar";
 import { AppContext } from "../../helper/Context";
+import OfflineAlert from "../../offline/OfflineAlert";
+import SignedOutAlert from "../../offline/SignedOutAlert";
 import { StyledLeaderboards } from "./Leaderboards.styled";
 
 function Leaderboards() {
-  const { users, getAllUsers, theme } = useContext(AppContext);
+  const { users, getAllUsers, theme, userErrMsg, getUserErr } =
+    useContext(AppContext);
 
   const [usersLoading, setUsersLoading] = useState(true);
 
@@ -21,6 +24,8 @@ function Leaderboards() {
 
   return (
     <StyledLeaderboards theme={theme}>
+      {userErrMsg?.message === "Network Error" && <OfflineAlert />}
+      {getUserErr && <SignedOutAlert />}
       <Navbar />
       <div className="top">
         <div className="row btw center">
