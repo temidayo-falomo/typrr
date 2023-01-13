@@ -14,7 +14,6 @@ export const StyledFooter = styled.footer`
   padding: 0 5px;
   margin-bottom: 5rem;
 
-
   .pointer {
     height: 70px;
     width: 70px;
@@ -23,16 +22,17 @@ export const StyledFooter = styled.footer`
     place-content: center;
     font-size: 2rem;
     padding: 10px;
-    transition: 0.5 all ease;
+    transition: 0.5 ease;
   }
 
   .btn-active {
-    background-color: #000;
-    color: #fff;
+    background-color: ${(props: any) => props.theme.textColor};
+    color: ${(props: any) => props.theme.backgroundColor};
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     font-weight: 600;
     position: relative;
+    transition: 0.5 ease;
 
     ::before {
       content: "";
@@ -42,7 +42,7 @@ export const StyledFooter = styled.footer`
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      background-color: #000;
+      background-color: ${(props: any) => props.theme.textColor};
     }
 
     ::after {
@@ -53,7 +53,7 @@ export const StyledFooter = styled.footer`
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      background-color: #000;
+      background-color: ${(props: any) => props.theme.textColor};
     }
   }
 `;

@@ -3,14 +3,14 @@ import { AppContext } from "../../helper/Context";
 import { StyledFooter } from "./Footer.styled";
 
 function Footer() {
-  const { setTimerCount } = useContext(AppContext);
+  const { setTimerCount, theme } = useContext(AppContext);
   const [number, setNumber] = useState<any>(
     Number(localStorage.getItem("typrrTimerIndex")) || 0
   );
   const timeArr = [15, 30, 60];
 
   return (
-    <StyledFooter>
+    <StyledFooter theme={theme}>
       {timeArr?.map((numb: any, i: any) => {
         return (
           <div

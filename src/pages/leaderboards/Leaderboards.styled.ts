@@ -103,18 +103,19 @@ export const StyledLeaderboards = styled.div`
       justify-content: space-around;
       padding: 15px 20px;
       min-height: 80px;
-      min-width: 250px;
+      min-width: 280px;
       align-items: center;
       width: 85%;
       margin: auto;
       border-radius: 10px;
-      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+      /* box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px; */
       font-size: 1.3rem;
       overflow-x: auto;
       overflow-y: hidden;
       gap: 2rem;
       overflow: hidden;
       font-weight: 600;
+      border: 1px ${(props: any) => props.theme.textColor} solid;
 
       td {
         display: inline;
@@ -127,7 +128,7 @@ export const StyledLeaderboards = styled.div`
           min-width: 50px;
           min-height: 50px;
           border-radius: 50%;
-          border: 2px #000 solid;
+          border: 1px ${(props: any) => props.theme.textColor} solid;
           background-color: #000;
         }
       }
