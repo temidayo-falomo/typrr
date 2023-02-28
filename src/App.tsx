@@ -123,8 +123,6 @@ function App() {
     getUser();
   }, []);
 
-  console.log("hello", users);
-
   return (
     <AppContext.Provider
       value={{
