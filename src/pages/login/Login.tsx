@@ -44,6 +44,9 @@ function Login() {
           navigate("/");
         }
       })
+      .then(() => {
+        window.location.reload();
+      })
       .catch((err) => console.log(err));
   };
 
