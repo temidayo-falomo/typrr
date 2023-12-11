@@ -14,8 +14,6 @@ function Navbar() {
   const { setDisplayColorsModal, getUserErr, user, theme } =
     useContext(AppContext);
 
-  console.log(getUserErr);
-
   return (
     <StyledNavbar theme={theme} getUserErr={getUserErr}>
       <Link to="/" className="logo row center gap-1">
@@ -55,7 +53,7 @@ function Navbar() {
           }}
           className="avatar pointer"
           style={{
-            backgroundImage: `url(${user?.userAvatar})`,
+            backgroundImage: user?.userAvatar && `url(${user?.userAvatar})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
             display: "grid",
@@ -63,7 +61,7 @@ function Navbar() {
             backgroundColor: user?.userAvatar ? "#364453" : "transparent",
           }}
         >
-          {!user.userAvatar && <BsQuestionLg />}
+          {!user?.userAvatar && <BsQuestionLg />}
         </div>
       </div>
     </StyledNavbar>
