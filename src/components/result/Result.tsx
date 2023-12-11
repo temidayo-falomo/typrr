@@ -62,7 +62,7 @@ function Result(props: any) {
     let id: string = localStorage.getItem("typrrUserId")!;
     const userDoc = doc(db, "users", id);
 
-    if (finalWpm > user.highestWpm) {
+    if (finalWpm > user?.highestWpm) {
       await updateDoc(userDoc, {
         highestWpm: finalWpm,
       });
